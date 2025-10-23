@@ -2,6 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
+import http from "http";
 import { recommendFilms } from "./tools/recommendFilms.js";
 import { estimatePrice } from "./tools/estimatePrice.js";
 const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" });
@@ -25,9 +26,10 @@ if (MODE === "http" || MODE === "sse" || MODE === "http1") {
     });
     // Health check for Render
     app.get("/healthz", (_req, res) => res.status(200).send("ok"));
-    const transport = new SSEServerTransport(app, PATH);
+    const httpServer = http.createServer(app);
+    const transport = new SSEServerTransport(httpServer, PATH);
     await server.connect(transport);
-    app.listen(PORT, () => {
+    httpServer.listen(PORT, () => {
         console.log(`✅ MCP SSE listening at http://0.0.0.0:${PORT}${PATH}`);
     });
 }
