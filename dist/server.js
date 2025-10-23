@@ -1,31 +1,33 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import express from "express";
-import { recommendFilms } from "./tools/recommendFilms.js";
-import { estimatePrice } from "./tools/estimatePrice.js";
-const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" });
-// relax types for now
-server.registerTool(recommendFilms.name, recommendFilms.descriptor, recommendFilms.handler);
-server.registerTool(estimatePrice.name, estimatePrice.descriptor, estimatePrice.handler);
-// Dual-mode: stdio (local) or HTTP (Render/Connector)
-const MODE = (process.env.MCP_MODE || "stdio").toLowerCase();
-if (MODE === "http" || MODE === "http1") {
-    const PORT = Number(process.env.PORT || 2091);
-    const PATH = process.env.MCP_PATH || "/mcp"; // Connector URL should point here
-    const app = express();
-    // If you later re-enable bearer auth, add a small middleware here
-    // app.use(PATH, (req, res, next) => { /* auth */ next(); });
-    // optional: basic health check for Render (only works in HTTP mode)
-    app.get("/healthz", (_req, res) => res.status(200).send("ok"));
-    const transport = new StreamableHTTPServerTransport({ app, path: PATH });
-    await server.connect(transport);
-    app.listen(PORT, () => {
-        console.log(`✅ MCP HTTP listening at http://0.0.0.0:${PORT}${PATH}`);
-    });
-}
-else {
-    const transport = new StdioServerTransport();
-    await server.connect(transport);
-    console.log("✅ Scottish Window Film MCP server connected via stdio");
-}
+import cors from "cors";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Sanity check for root (optional)
+app.get("/", (_req, res) => res.send("OK"));
+
+// Support both /mcp and /mcp/
+const mcpPaths = ["/mcp", "/mcp/"];
+
+// Minimal discovery endpoint so connector creation succeeds
+app.get(mcpPaths, (_req, res) => {
+  res.json({
+    name: "Scottish Window Tinting Advisor",
+    version: "1.0.0",
+    mcp: "1.0",
+    // You can change these later to your actual RPC endpoints
+    endpoints: { rpc: "/mcp/rpc" },
+    tools: [] // fill in later
+  });
+});
+
+// (Optional) stub JSON-RPC endpoint your app can grow into
+app.post(["/mcp/rpc", "/mcp/rpc/"], (req, res) => {
+  // For now, just echo back the request so you get 200s
+  res.json({ ok: true, received: req.body });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`MCP server on :${PORT}`));
