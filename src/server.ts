@@ -6,6 +6,13 @@ import express from "express";
 import { recommendFilms } from "./tools/recommendFilms.js";
 import { estimatePrice } from "./tools/estimatePrice.js";
 
+process.on("uncaughtException", (err) => {
+  console.error("💥 Uncaught exception:", err?.stack || err);
+});
+process.on("unhandledRejection", (reason) => {
+  console.error("💥 Unhandled rejection:", reason);
+});
+
 const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" });
 
 // relax types for now
@@ -21,9 +28,22 @@ if (MODE === "http" || MODE === "http1") {
 
   const app = express();
 
-  // Log incoming requests so we can see what the connector does
+// Log incoming requests so we can see what the connector does
 app.use((req, _res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+app.use((req, res, next) => {
+  const start = Date.now();
+  // Capture original end to wrap it
+  const originalEnd = res.end as any;
+  (res as any).end = function (chunk?: any, encoding?: any, cb?: any) {
+    const ms = Date.now() - start;
+    // @ts-ignore
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} -> ${res.statusCode} (${ms}ms)`);
+    return originalEnd.call(this, chunk, encoding, cb);
+  };
   next();
 });
 
@@ -46,6 +66,7 @@ app.options(PATH, (_req, res) => res.status(204).end());
 
   const transport = new StreamableHTTPServerTransport({ app, path: PATH } as any);
   await server.connect(transport);
+  console.log(`✅ HTTP transport mounted at ${PATH}`);
 
   app.listen(PORT, () => {
     console.log(`✅ MCP HTTP listening at http://0.0.0.0:${PORT}${PATH}`);
