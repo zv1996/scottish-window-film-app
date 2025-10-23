@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 
 import { recommendFilms } from "./tools/recommendFilms.js";
@@ -16,7 +16,7 @@ const MODE = (process.env.MCP_MODE || "stdio").toLowerCase();
 
 if (MODE === "http" || MODE === "sse" || MODE === "http1") {
   const PORT = Number(process.env.PORT || 2091);
-  const PATH = process.env.MCP_PATH || "/mcp";
+  const PATH = process.env.MCP_PATH || "/sse";
   const APP_TOKEN = process.env.MCP_BEARER || ""; // optional bearer auth
 
   const app = express();
@@ -32,11 +32,11 @@ if (MODE === "http" || MODE === "sse" || MODE === "http1") {
   // Health check for Render
   app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 
-  const transport = new StreamableHTTPServerTransport({ app, path: PATH } as any);
+  const transport = new (SSEServerTransport as any)(app, PATH);
   await server.connect(transport);
 
   app.listen(PORT, () => {
-    console.log(`✅ MCP HTTP listening at http://0.0.0.0:${PORT}${PATH}`);
+    console.log(`✅ MCP SSE listening at http://0.0.0.0:${PORT}${PATH}`);
   });
 } else {
   const transport = new StdioServerTransport();
