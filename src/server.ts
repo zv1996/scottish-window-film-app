@@ -21,6 +21,23 @@ if (MODE === "http" || MODE === "http1") {
 
   const app = express();
 
+  // Log incoming requests so we can see what the connector does
+app.use((req, _res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Minimal CORS so the connector never gets blocked
+app.use((_req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  next();
+});
+
+// Fast-path preflight for the connector
+app.options(PATH, (_req, res) => res.status(204).end());
+
   // Health for Render
   app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 
