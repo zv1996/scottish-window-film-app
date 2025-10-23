@@ -1,0 +1,1212 @@
+[
+  {
+    "brand": "Huper Optik",
+    "brand_page_url": "https://www.scottishwindowtinting.com/products/huper-optik/",
+    "products": [
+      {
+        "series": "Select",
+        "product_name": "Sech",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Premium nano-ceramic film from the Select series focused on high clarity and balanced heat/glare reduction."
+      },
+      {
+        "series": "Select",
+        "product_name": "Drei",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Select series film designed for strong solar control while maintaining a neutral appearance."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Klar",
+        "category": "solar_control",
+        "use_cases": ["heat", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Ceramic series clear/neutral option emphasizing IR and UV rejection with minimal darkening."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 70",
+        "category": "solar_control",
+        "use_cases": ["heat", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Very light ceramic film for subtle heat reduction and high visible light transmission."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 60",
+        "category": "solar_control",
+        "use_cases": ["heat", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Light ceramic film that balances clarity with meaningful IR/UV rejection."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 50",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Mid-visual-transmission ceramic film that reduces heat and glare while keeping a neutral look."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 45",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Balanced ceramic film with noticeable glare reduction and strong UV blocking."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 40",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Popular mid‑tone ceramic film providing solid heat and glare performance."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 35",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "High clarity solar control film offering excellent IR rejection and low reflectivity."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 30",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Noticeably darker ceramic film for added glare control without a mirror look."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 20",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv", "privacy"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Dark ceramic film for stronger privacy with robust heat and glare reduction."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 15",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv", "privacy"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Very dark ceramic film emphasizing privacy and glare control."
+      },
+      {
+        "series": "Ceramic",
+        "product_name": "Ceramic 5",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv", "privacy"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Maximum privacy ceramic film with strong solar control performance."
+      },
+      {
+        "series": "Therm-X",
+        "product_name": "Therm-X 70",
+        "category": "low_e",
+        "use_cases": ["heat", "uv", "energy_savings"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Low‑E film tuned for energy savings with high visible light transmission."
+      },
+      {
+        "series": "Therm-X",
+        "product_name": "Therm-X 50",
+        "category": "low_e",
+        "use_cases": ["heat", "uv", "energy_savings"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Low‑E performance with a balanced tint level for improved comfort and efficiency."
+      },
+      {
+        "series": "Therm-X",
+        "product_name": "Therm-X 30",
+        "category": "low_e",
+        "use_cases": ["heat", "uv", "energy_savings"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Darker Low‑E option for stronger glare control alongside energy savings."
+      },
+      {
+        "series": "Fusion",
+        "product_name": "Fusion 40",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Hybrid film targeting balanced solar performance with a natural tone."
+      },
+      {
+        "series": "Fusion",
+        "product_name": "Fusion 28",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Mid‑dark option in the Fusion line for increased glare reduction."
+      },
+      {
+        "series": "Fusion",
+        "product_name": "Fusion 20",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv", "privacy"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Darker Fusion film for privacy and robust solar control."
+      },
+      {
+        "series": "Fusion",
+        "product_name": "Fusion 10",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv", "privacy"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Deeply tinted Fusion film with strong privacy and glare reduction."
+      },
+      {
+        "series": "Traditional",
+        "product_name": "Traditional Silver 18",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "privacy", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "value",
+        "exterior_ok": false,
+        "description": "Reflective silver film for classic high heat rejection and daytime privacy."
+      },
+      {
+        "series": "Traditional",
+        "product_name": "Traditional Bronze 40",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "privacy", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "value",
+        "exterior_ok": false,
+        "description": "Bronze reflective film providing a warm aesthetic with solid solar control."
+      },
+      {
+        "series": "Traditional",
+        "product_name": "Traditional Bronze 25",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "privacy", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "value",
+        "exterior_ok": false,
+        "description": "Darker bronze variant delivering greater glare control and daytime privacy."
+      },
+      {
+        "series": "Shield",
+        "product_name": "Clear Shield 4mil",
+        "category": "security",
+        "use_cases": ["security", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "value",
+        "exterior_ok": false,
+        "description": "Clear safety/security film designed to help hold glass together upon impact."
+      },
+      {
+        "series": "Dekorativ",
+        "product_name": "Matte Black",
+        "category": "decorative",
+        "use_cases": ["privacy", "decorative"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Opaque matte black film for strong privacy and design accents."
+      },
+      {
+        "series": "Dekorativ",
+        "product_name": "White Out",
+        "category": "decorative",
+        "use_cases": ["privacy", "decorative"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "White opaque film that blocks view while keeping a clean, modern look."
+      },
+      {
+        "series": "Dekorativ",
+        "product_name": "White Frost",
+        "category": "decorative",
+        "use_cases": ["privacy", "decorative"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Translucent frosted film providing diffuse privacy and soft daylight."
+      },
+      {
+        "series": "Dekorativ",
+        "product_name": "Dusted Crystal",
+        "category": "decorative",
+        "use_cases": ["privacy", "decorative"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Etched-glass style film for upscale privacy without full opacity."
+      }
+    ]
+  },
+  {
+    "brand": "3M",
+    "brand_page_url": "http://scottishwindowtinting.com/window-tinting-products/3m/",
+    "products": [
+      {
+        "series": "Daylight Redirecting",
+        "product_name": "3M Daylight Redirecting Film",
+        "category": "solar_control",
+        "use_cases": ["daylighting", "glare", "energy_savings"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Micro-structured daylighting film that redirects natural light deeper into the space to reduce glare and electric lighting needs."
+      },
+      {
+        "series": "Thinsulate Climate Control",
+        "product_name": "3M Thinsulate Climate Control Commercial",
+        "category": "low_e",
+        "use_cases": ["energy_savings", "heat", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Low‑E insulating window film that improves year‑round efficiency: helps keep heat in during winter and out during summer."
+      },
+      {
+        "series": "Sun Control Prestige",
+        "product_name": "3M Sun Control Prestige Series Commercial",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Spectrally‑selective multilayer film with high visible clarity that rejects heat and UV while minimizing reflectivity."
+      },
+      {
+        "series": "Sun Control Prestige Exterior",
+        "product_name": "3M Sun Control Prestige Exterior Commercial",
+        "category": "solar_control",
+        "use_cases": ["heat", "glare", "uv"],
+        "install_location": ["exterior"],
+        "property_types": ["commercial"],
+        "price_tier": "premium",
+        "exterior_ok": true,
+        "description": "Exterior‑rated variant of the Prestige line offering significant solar heat rejection and UV protection where interior access is limited."
+      },
+      {
+        "series": "Scotchshield Safety & Security Ultra Prestige",
+        "product_name": "3M Scotchshield S&S Ultra Prestige Series",
+        "category": "security",
+        "use_cases": ["security", "uv"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "High‑performance safety/security film combined with solar benefits; helps hold glass together while reducing UV exposure."
+      }
+    ]
+  }
+,
+  {
+    "brand": "Solar Gard",
+    "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/solargard/",
+    "products": [
+      { "series": "Safety & Security", "product_name": "10 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Thick clear safety film to help hold glass together and reduce hazards from breakage." },
+      { "series": "Safety & Security", "product_name": "10 mil Silver 20", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Safety film with reflective solar control layer for added heat rejection and daytime privacy." },
+      { "series": "Safety & Security", "product_name": "10 mil Stainless Steel 35", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Safety film paired with stainless-steel solar layer for balanced performance." },
+      { "series": "Safety & Security", "product_name": "11 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Enhanced-impact clear safety/security film for added glass retention." },
+      { "series": "Safety & Security", "product_name": "14 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "High-gauge security film for maximum resistance to impact and forced entry." },
+      { "series": "Safety & Security", "product_name": "4 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Entry-level clear safety film for basic shard retention and UV protection." },
+      { "series": "Safety & Security", "product_name": "4 mil Silver 20", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Safety with reflective solar performance for heat rejection and privacy." },
+      { "series": "Safety & Security", "product_name": "4 mil Solar Bronze 35", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Safety film with bronze solar layer for warm aesthetics and solar control." },
+      { "series": "Safety & Security", "product_name": "4 mil Stainless Steel 35", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Stainless-steel appearance paired with safety functionality." },
+      { "series": "Safety & Security", "product_name": "4 mil Stainless Steel 20", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Darker stainless-steel safety film for stronger daytime privacy." },
+      { "series": "Safety & Security", "product_name": "4 mil Stainless Steel 50", "category": "security", "use_cases": ["security","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Lighter stainless-steel look with safety benefits." },
+      { "series": "Safety & Security", "product_name": "7 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Popular mid‑thickness safety film to help mitigate glass hazards." },
+      { "series": "Safety & Security", "product_name": "8 mil Clear", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Thicker clear safety film for increased impact resistance." },
+      { "series": "Safety & Security", "product_name": "8 mil Silver 20", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Reflective solar layer combined with 8‑mil safety base." },
+      { "series": "Safety & Security", "product_name": "8 mil Silver 35", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Balanced reflectivity and safety for comfort and protection." },
+      { "series": "Safety & Security", "product_name": "8 mil Stainless Steel 20", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Darker stainless-steel aesthetic with safety performance." },
+      { "series": "Safety & Security", "product_name": "8 mil Stainless Steel 35", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral stainless-steel tone paired with safety film." },
+      { "series": "Safety & Security", "product_name": "8 mil Stainless Steel 50", "category": "security", "use_cases": ["security","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Lighter solar appearance with safety benefits." },
+
+      { "series": "Solar Control", "product_name": "2 mil Clear", "category": "solar_control", "use_cases": ["uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Clear film primarily for UV reduction while maintaining full daylight." },
+      { "series": "Solar Control", "product_name": "Autumn Bronze 30", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Warm bronze tone that reduces heat and glare for a classic reflective look." },
+      { "series": "Solar Control", "product_name": "Black Opaque", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Fully opaque black film for complete privacy and design accents." },
+      { "series": "Solar Control", "product_name": "Bronze Silver 15", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Dual‑tone bronze/silver reflective film for high heat rejection and daytime privacy." },
+      { "series": "Solar Control", "product_name": "Bronze Silver Bronze 10", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Tri‑layer bronze/silver/bronze reflective appearance for strong solar control." },
+      { "series": "Solar Control", "product_name": "Clear Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Frosted finish for diffuse privacy while transmitting light." },
+      { "series": "Solar Control", "product_name": "Ecolux 70", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E insulating film designed to improve year‑round energy performance with high clarity." },
+      { "series": "Solar Control", "product_name": "Grey Silver 15", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Grey reflective hybrid for heat rejection and daytime privacy." },
+      { "series": "Solar Control", "product_name": "Grey Silver Grey 10", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Grey/silver/grey tri‑layer look for strong solar control." },
+      { "series": "Solar Control", "product_name": "Quantum Silver Quantum 10", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Quantum sputtered construction for stable color and solid solar performance." },
+      { "series": "Solar Control", "product_name": "Quantum Silver Quantum 20", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑sputtered silver design delivering reliable heat and glare reduction." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus 4 mil Clear OSW", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior‑rated clear base for solar/UV reduction when interior access is limited." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Silver 20 OSW", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior silver 20 for strong heat rejection and daytime privacy." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Silver 35 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior silver 35 for balanced solar performance." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Stainless Steel 15 OSW", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior stainless‑steel tone at 15% for privacy and heat rejection." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Stainless Steel 25 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior stainless‑steel 25% for balanced brightness and solar control." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Stainless Steel 40 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior stainless‑steel 40% for light solar control with neutral look." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus Stainless Steel 45 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior stainless‑steel 45% for subtle solar benefits and maximum daylight." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Plus SX 50 OSW", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior SX 50 option for gentle heat rejection and high light levels." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Solar Bronze 30 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior bronze tone at 30% for a warm look with solar control." },
+      { "series": "Sentinel Plus (OSW)", "product_name": "Sentinel Solar Bronze 40 OSW", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior bronze 40% for balanced daylight and solar reduction." },
+      { "series": "Solar Control", "product_name": "Silver 20", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Classic reflective silver at 20% for strong heat rejection and privacy." },
+      { "series": "Solar Control", "product_name": "Silver 35", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Silver 35% for balanced reflectivity and comfort." },
+      { "series": "Solar Control", "product_name": "Silver 50", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Silver 50% for light solar improvement with high brightness." },
+      { "series": "Solar Control", "product_name": "Silver AG 25 Low E", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E silver 25% for improved insulation and solar rejection." },
+      { "series": "Solar Control", "product_name": "Silver AG 50 Low E", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E silver 50% for subtle tint with insulating benefits." },
+      { "series": "Solar Control", "product_name": "Solar Bronze 20", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Bronze tone at 20% for privacy and high heat rejection." },
+      { "series": "Solar Control", "product_name": "Solar Bronze 35", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Bronze 35% for a warm aesthetic with balanced solar control." },
+      { "series": "Solar Control", "product_name": "Solar Bronze 50", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Light bronze 50% for gentle solar improvement while retaining brightness." },
+      { "series": "Solar Control", "product_name": "Stainless Steel 10", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Dark stainless look for strong heat rejection and daytime privacy." },
+      { "series": "Solar Control", "product_name": "Stainless Steel 20", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Stainless 20% for robust solar performance and privacy." },
+      { "series": "Solar Control", "product_name": "Stainless Steel 30", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Stainless 30% for balanced appearance and comfort." },
+      { "series": "Solar Control", "product_name": "Stainless Steel 35", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Neutral stainless 35% for all‑around solar control." },
+      { "series": "Solar Control", "product_name": "Stainless Steel 50", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Light stainless 50% for minimal tint with UV reduction." },
+      { "series": "Solar Control", "product_name": "TrueVue 5", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective film at 5% for strong privacy and glare control." },
+      { "series": "Solar Control", "product_name": "TrueVue 15", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 15% balancing privacy with thermal comfort." },
+      { "series": "Solar Control", "product_name": "TrueVue 30", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 30% for balanced brightness and solar control." },
+      { "series": "Solar Control", "product_name": "TrueVue 40", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 40% for light tint and comfort." },
+      { "series": "Solar Control", "product_name": "White Opaque", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Solid white film for full privacy and branding backdrops." },
+
+      { "series": "Panorama Hilite", "product_name": "8 mil Hilite 70", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Thicker Panorama HiLite option for added durability with high clarity." },
+      { "series": "Panorama Hilite", "product_name": "Hilite 40", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Panorama HiLite 40% for balanced solar performance and clarity." },
+      { "series": "Panorama Hilite", "product_name": "Hilite 70", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "HiLite 70% for high visible light with subtle heat rejection." },
+      { "series": "Panorama Slate", "product_name": "Slate 10", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Dark dual‑reflective Slate option for strong privacy and glare cut." },
+      { "series": "Panorama Slate", "product_name": "Slate 20", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Slate 20% for robust solar gains with a refined look." },
+      { "series": "Panorama Slate", "product_name": "Slate 30", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Slate 30% balances daylight, comfort, and appearance." },
+      { "series": "Panorama Slate", "product_name": "Slate 40", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Lighter Slate 40% for subtle tint with solar benefits." },
+      { "series": "Panorama Sterling", "product_name": "Sterling 20", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Sterling 20% for heat rejection and privacy with a neutral tone." },
+      { "series": "Panorama Sterling", "product_name": "Sterling 40", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Sterling 40% neutral performance for comfort and clarity." },
+      { "series": "Panorama Sterling", "product_name": "Sterling 50", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Sterling 50% for subtle solar improvement and high daylight." },
+      { "series": "Panorama Sterling", "product_name": "Sterling 60", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Sterling 60% for gentle heat reduction with bright interiors." },
+      { "series": "Panorama Sterling", "product_name": "Sterling 70", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "premium", "exterior_ok": false, "description": "Sterling 70% provides high visible light with modest solar benefits." },
+
+      { "series": "Anti‑Vandalism", "product_name": "Graffitigard 4 mil", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "mid", "exterior_ok": false, "description": "Sacrificial layer that helps protect glass from scratches and etching; easily replaceable." },
+      { "series": "Anti‑Vandalism", "product_name": "Graffitigard 6 mil", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "mid", "exterior_ok": false, "description": "Thicker anti‑vandalism layer for higher durability against etching and graffiti." },
+      { "series": "Anti‑Vandalism", "product_name": "Graffitigard 7 mil", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "mid", "exterior_ok": false, "description": "Heavy‑duty sacrificial film for high‑traffic or high‑risk areas." },
+      { "series": "Anti‑Vandalism", "product_name": "Metal Shield", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Specialty sacrificial film designed to restore and protect metal surfaces from graffiti and scratching." },
+      { "series": "Anti‑Vandalism", "product_name": "Mirror Shield", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Sacrificial film for mirrors that conceals previous damage and protects against future vandalism." }
+    ]
+  }
+,
+  {
+    "brand": "Graffiti Shield",
+    "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/graffiti-shield/",
+    "products": [
+      {
+        "series": "Glass Shield",
+        "product_name": "Glass Shield 4Mil",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Sacrificial anti-vandalism film for glass designed to protect surfaces from scratching and etching."
+      },
+      {
+        "series": "Glass Shield",
+        "product_name": "Glass Shield 6Mil",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Thicker sacrificial layer for increased durability and vandalism protection on glass."
+      },
+      {
+        "series": "Glass Shield",
+        "product_name": "Glass Shield 12Mil NH70",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Heavy-duty Glass Shield variant (approx. 12‑mil) for high-traffic areas requiring robust protection."
+      },
+      {
+        "series": "Multi Layer",
+        "product_name": "Multi Layer 4-mil",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Multi-layer sacrificial film designed to peel back and reveal a fresh layer after vandalism events."
+      },
+      {
+        "series": "Metal Shield",
+        "product_name": "Metal Shield",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Specialty film engineered to restore and protect metal surfaces from graffiti and abrasion."
+      },
+      {
+        "series": "Mirror Shield",
+        "product_name": "Mirror Shield",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Anti-vandalism film for mirrors that conceals existing damage and protects against future etching."
+      }
+    ]
+  },
+  {
+    "brand": "Llumar",
+    "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/llumar/",
+    "products": [
+      { "series": "Reflective", "product_name": "RN 07G SR CDF- Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Dark green reflective film for high heat rejection and strong daytime privacy." },
+      { "series": "Reflective", "product_name": "R 15 G SR CDF- Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Green reflective 15% providing robust solar control and privacy." },
+      { "series": "Reflective", "product_name": "R 15 B SR CDF - Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Blue reflective 15% film with strong glare reduction and heat rejection." },
+      { "series": "Reflective", "product_name": "R 15 Gold SR PS - Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Gold reflective finish at 15% for privacy and high solar rejection." },
+      { "series": "Reflective", "product_name": "R 15 Blue SR PS - Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Blue reflective 15% with a cool aesthetic and strong heat/glare control." },
+      { "series": "Reflective", "product_name": "R 20 SR CDF- Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Reflective 20% for high heat rejection and privacy." },
+      { "series": "Reflective", "product_name": "R 35 SR CDF- Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Reflective 35% offering balanced tint with solid solar control." },
+      { "series": "Reflective", "product_name": "R 50 SR - CDF - Reflective", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "value", "exterior_ok": false, "description": "Light reflective film at 50% for subtle solar improvement with high daylight." },
+
+      { "series": "Dual Reflective", "product_name": "DR 15 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 15% with lower interior reflectance for nighttime views and daytime privacy." },
+      { "series": "Dual Reflective", "product_name": "DR 25 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 25% balancing comfort and exterior reflectivity." },
+      { "series": "Dual Reflective", "product_name": "DR 35 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective 35% for lighter interiors with meaningful solar control." },
+
+      { "series": "Neutral", "product_name": "N1020 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral tone at ~20% for heat and glare reduction without a mirror look." },
+      { "series": "Neutral", "product_name": "N1050 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral 50% for subtle solar benefits and high visible light." },
+      { "series": "Neutral", "product_name": "N1065 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral 65% preserving brightness while reducing UV and some heat." },
+      { "series": "Neutral", "product_name": "N1020B SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral bronze variant around 20% for a warm look with solar control." },
+      { "series": "Neutral", "product_name": "N1035B SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral bronze ~35% delivering balanced comfort and aesthetics." },
+
+      { "series": "Low-E", "product_name": "E 1220 SR CDF - Low-E", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E insulating film to improve year‑round efficiency and comfort." },
+
+      { "series": "Deluxe", "product_name": "DL 05G SR CDF - Deluxe", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Deluxe 5% for maximum glare reduction and daytime privacy." },
+      { "series": "Deluxe", "product_name": "DL 15B SR CDF - Deluxe", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Deluxe blue 15% offering privacy with a cool tone." },
+      { "series": "Deluxe", "product_name": "DL 15G SR CDF - Deluxe", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Deluxe green 15% combining solar control and privacy." },
+      { "series": "Deluxe", "product_name": "DL 30 GN SR PS - Deluxe", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Deluxe 30% green/neutral for balanced appearance and comfort." },
+
+      { "series": "Safety/Security", "product_name": "SCL SR PS2 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film (~2‑mil PSA) for basic shard retention and UV protection." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film (~4‑mil) to help hold glass together upon impact." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS6 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film (~6‑mil) for increased impact resistance." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS7 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film (~7‑mil) offering enhanced protection." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS8 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film (~8‑mil) ideal for higher‑risk areas." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS11 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Clear safety film (~11‑mil) for maximum glass retention and security performance." },
+      { "series": "Safety/Security", "product_name": "SCL SR PS15 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Heavy‑gauge clear safety film (~15‑mil) for high‑threat applications." },
+      { "series": "Safety/Security", "product_name": "R 20 SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Safety film with reflective solar layer at 20% for privacy and heat rejection." },
+      { "series": "Safety/Security", "product_name": "R 20 SR PS8 - Safety/Security", "category": "security", "use_cases": ["security","heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "8‑mil reflective safety film offering robust solar control and glass retention." },
+      { "series": "Safety/Security", "product_name": "N1020 SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral 20% safety film combining solar control with impact resistance." },
+      { "series": "Safety/Security", "product_name": "N1020 SR PS8 - Safety/Security", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "8‑mil neutral 20% safety film for elevated protection and comfort." },
+      { "series": "Safety/Security", "product_name": "N1040 SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral 40% safety film offering light tint with UV and impact benefits." },
+      { "series": "Safety/Security", "product_name": "N1040 - SR PS8 - Safety/Security", "category": "security", "use_cases": ["security","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "8‑mil neutral 40% safety film for subtle appearance with protection." },
+      { "series": "Safety/Security", "product_name": "N1050 SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral 50% clear‑leaning safety film with UV reduction and shard retention." },
+      { "series": "Safety/Security", "product_name": "N1050  SR PS8 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "8‑mil neutral 50% safety film for higher impact resistance." },
+      { "series": "Safety/Security", "product_name": "NUV 65 SR PS4 - Safety/Security", "category": "security", "use_cases": ["security","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Clear safety film with high UV reduction and glass retention benefits." },
+
+      { "series": "Exterior (ER HPR)", "product_name": "RHE 20 ER HPR - Exterior", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["exterior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior‑rated reflective 20% for strong heat rejection where interior access is limited." },
+      { "series": "Exterior (ER HPR)", "product_name": "RHE 35 ER HPR - Exterior", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior reflective 35% for balanced solar performance." },
+      { "series": "Exterior (ER HPR)", "product_name": "RHE 50 ER HPR - Exterior", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["exterior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior reflective 50% for subtle tint with solar benefits." },
+      { "series": "Exterior (ER HPR)", "product_name": "NHE 20 ER HPR - Exterior", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior neutral 20% for privacy and comfort without mirror‑like appearance." },
+      { "series": "Exterior (ER HPR)", "product_name": "NHE 35 ER HPR - Exterior", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["exterior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": true, "description": "Exterior neutral 35% delivering balanced daylight and solar control." },
+
+      { "series": "Graffiti", "product_name": "GCL SR PS4 - Graffiti", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "mid", "exterior_ok": false, "description": "Anti‑graffiti protective layer (~4‑mil) designed to be replaced after damage." },
+      { "series": "Graffiti", "product_name": "GCL SR PS6 - Graffiti", "category": "security", "use_cases": ["security","anti_vandalism"], "install_location": ["interior"], "property_types": ["commercial","residential"], "price_tier": "mid", "exterior_ok": false, "description": "~6‑mil anti‑vandalism film for higher durability." },
+
+      { "series": "Elegant Frost", "product_name": "Frost (NPM PS2) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Standard frost for diffuse privacy and soft daylight." },
+      { "series": "Elegant Frost", "product_name": "Mist (NRM80 PS2) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Light misted frost for gentle diffusion and privacy." },
+      { "series": "Elegant Frost", "product_name": "Glacier (NRM55 PS4) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Frosted film with a cooler tone for privacy and design accents." },
+      { "series": "Elegant Frost", "product_name": "Bronze (NRMB PS2) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Bronze frosted film for a warm privacy aesthetic." },
+      { "series": "Elegant Frost", "product_name": "Silver (RMS PS2) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Silver shimmer frost for decorative privacy." },
+      { "series": "Elegant Frost", "product_name": "Satin Crystal (NRMV SC HPR) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Satin crystal finish for upscale decorative privacy." },
+      { "series": "Elegant Frost", "product_name": "Brushed Crystal (NRMV BC HPR) - Elegant Frost", "category": "decorative", "use_cases": ["privacy","decorative"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Brushed crystal texture for upscale privacy and visual interest." }
+    ]
+  },
+  {
+    "brand": "Madico",
+    "brand_page_url": "",
+    "products": [
+      {
+        "series": "Specialty",
+        "product_name": "UV Gard",
+        "category": "solar_control",
+        "use_cases": ["uv", "fade_protection"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Clear UV-blocking film designed to help protect interiors, displays, and furnishings from UV-related fading."
+      },
+      {
+        "series": "Specialty",
+        "product_name": "Amber 81",
+        "category": "solar_control",
+        "use_cases": ["uv", "glare", "specialty"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Amber‑tinted specialty film often used for museums and labs where color correction and UV reduction are desired."
+      },
+      {
+        "series": "Anti‑Vandalism",
+        "product_name": "Graffiti‑Free",
+        "category": "security",
+        "use_cases": ["security", "anti_vandalism"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Sacrificial layer that helps protect glass from scratching and etching; easily replaced when damaged."
+      },
+      {
+        "series": "Specialty",
+        "product_name": "Blister Free",
+        "category": "specialty",
+        "use_cases": ["polycarbonate_compatibility", "installation_aid"],
+        "install_location": ["interior"],
+        "property_types": ["residential", "commercial"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Substrate barrier/primer film used on plastic glazing (e.g., polycarbonate) to mitigate bubbling under solar films."
+      },
+      {
+        "series": "Printable",
+        "product_name": "Printable Film",
+        "category": "decorative",
+        "use_cases": ["decorative", "branding", "signage"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "mid",
+        "exterior_ok": false,
+        "description": "Printable media designed for custom graphics, branding, and signage applications on glass."
+      },
+      {
+        "series": "View Control",
+        "product_name": "View Control",
+        "category": "decorative",
+        "use_cases": ["privacy", "decorative"],
+        "install_location": ["interior"],
+        "property_types": ["commercial", "residential"],
+        "price_tier": "premium",
+        "exterior_ok": false,
+        "description": "Directional privacy film (louver effect) that obscures views from specific angles while allowing light in."
+      }
+    ]
+  },
+  {
+    "brand": "Vista",
+    "brand_page_url": "http://scottishwindowtinting.com/window-tinting-products/vista/",
+    "products": [
+      { "series": "Neutral", "product_name": "V 33 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral tone around 33% providing balanced heat and glare reduction without a mirror look." },
+      { "series": "Neutral", "product_name": "V 45 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral ~45% for subtle solar benefits and higher visible light." },
+      { "series": "Neutral", "product_name": "V 58 SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Neutral ~58% preserving brightness while cutting UV and some heat." },
+      { "series": "Neutral", "product_name": "V 33 BR SR CDF - Neutral", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Bronze‑neutral variant near 33% for a warmer look with balanced solar control." },
+
+      { "series": "Dual Reflective", "product_name": "V 14 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Very dark dual‑reflective ~14% for maximum glare reduction and daytime privacy with lower interior reflectance at night." },
+      { "series": "Dual Reflective", "product_name": "V 18 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","privacy","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective ~18% balancing privacy, heat rejection, and nighttime views." },
+      { "series": "Dual Reflective", "product_name": "V 28 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective ~28% for strong comfort with a neutral interior appearance." },
+      { "series": "Safety / Dual Reflective", "product_name": "V 28 SR PS8 - Safety - Dual Reflective", "category": "security", "use_cases": ["security","heat","glare","uv","privacy"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "8‑mil safety version of V28 combining impact resistance with dual‑reflective solar benefits and daytime privacy." },
+      { "series": "Dual Reflective", "product_name": "V 38 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective ~38% for lighter interiors while still improving comfort." },
+      { "series": "Safety / Dual Reflective", "product_name": "V 38 SR PS8 - Safety - Dual Reflective", "category": "security", "use_cases": ["security","heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "8‑mil safety variant of V38 combining impact resistance with dual‑reflective solar control." },
+      { "series": "Dual Reflective", "product_name": "V 48 SR CDF - Dual Reflective", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "mid", "exterior_ok": false, "description": "Dual‑reflective ~48% for subtle tint with meaningful UV and heat reduction." },
+
+      { "series": "Low-E", "product_name": "VE 35 SR CDF - Low-E", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E insulating film ~35% improving year‑round efficiency and comfort." },
+      { "series": "Low-E", "product_name": "VE 50 SR CDF - Low-E", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Low‑E ~50% preserving brightness while adding insulating benefits." },
+
+      { "series": "Enerlogic", "product_name": "VEP 35 SR TVA - Enerlogic", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Enerlogic ~35% with advanced low‑E coating for strong energy savings and comfort." },
+      { "series": "Enerlogic", "product_name": "VEP 70 SR CDF - Enerlogic", "category": "low_e", "use_cases": ["energy_savings","heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Enerlogic ~70% high‑visibility option delivering insulating performance with minimal tint." },
+
+      { "series": "Spectrally Selective", "product_name": "VS 60 SR CDF - Spectrally Selective", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Spectrally selective ~60% for high light transmission with meaningful IR rejection." },
+      { "series": "Spectrally Selective", "product_name": "VS 61 SR CDF - Spectrally Selective", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Spectrally selective ~61% providing neutral clarity and heat reduction." },
+      { "series": "Spectrally Selective", "product_name": "VS 70 SR CDF - Spectrally Selective", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Very light, high‑clarity spectrally selective film for subtle heat rejection and maximum daylight." },
+
+      { "series": "Ceramic", "product_name": "Ceramic 35 SR PS", "category": "solar_control", "use_cases": ["heat","glare","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Ceramic ~35% combining strong IR rejection with a neutral, low‑reflective appearance." },
+      { "series": "Ceramic", "product_name": "Ceramic 45 SR PS", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Ceramic ~45% preserving brightness while improving comfort and UV protection." },
+      { "series": "Ceramic", "product_name": "Ceramic 55 SR PS", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Ceramic ~55% with minimal tint for subtle thermal improvement and high clarity." },
+      { "series": "Ceramic", "product_name": "Ceramic 65 SR PS", "category": "solar_control", "use_cases": ["heat","uv"], "install_location": ["interior"], "property_types": ["residential","commercial"], "price_tier": "premium", "exterior_ok": false, "description": "Very light ceramic ~65% offering IR/UV reduction with a bright, neutral look." }
+    ]
+  },
+  {
+    "brand": "V-Kool",
+    "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/v-kool/",
+    "products": []
+  },
+{
+  "brand": "Solyx",
+  "brand_page_url": "",
+  "products": [
+    {
+      "series": "Decorative",
+      "product_name": "SXHE-39 Clear Feathered",
+      "category": "decorative",
+      "use_cases": ["privacy", "design", "diffused_light"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Feathered gradient glass film providing a soft transition from clear to frosted for elegant privacy."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1004 Clear Ripple Glass",
+      "category": "decorative",
+      "use_cases": ["privacy", "design", "light_diffusion"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Textured ripple pattern that mimics antique glass, diffusing light while maintaining brightness."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXHE-1034 Ice Forest",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "premium",
+      "exterior_ok": false,
+      "description": "Distinct etched-glass style film with icy organic patterns for privacy and artistic appeal."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-9000 Clear Waters",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Soft wave-like texture that creates the impression of water flow, ideal for bathrooms or offices."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1523 Big City Lights",
+      "category": "decorative",
+      "use_cases": ["design", "aesthetic"],
+      "install_location": ["interior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Modern geometric film with reflective light accents, perfect for contemporary commercial interiors."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXW-08 Frosted Jacks",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Playful frosted pattern resembling intersecting jacks, offering creative privacy in glass partitions."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-3006 White Frosted Mini Blind",
+      "category": "decorative",
+      "use_cases": ["privacy", "light_diffusion"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Horizontal mini-blind pattern with a white frosted finish, maintaining privacy while softening light."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-0302 Frosted Clouds",
+      "category": "decorative",
+      "use_cases": ["privacy", "aesthetic"],
+      "install_location": ["interior"],
+      "property_types": ["residential"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Soft frosted cloud pattern offering a calm, diffuse light environment suitable for living spaces."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXHK-01 Shoji Screen",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Japanese-inspired Shoji pattern that adds elegance and diffused privacy to modern interiors."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXJ-0403 Matrix White Matte",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Matrix-style white matte film with subtle square patterns suited for corporate or tech environments."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-3140 Dusted Crystal",
+      "category": "decorative",
+      "use_cases": ["privacy", "light_diffusion"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Elegant dusted crystal appearance replicating etched glass for understated sophistication."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX3-314 Acid Etch",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Classic acid-etched effect that balances privacy and style in both residential and professional settings."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXGF-0197 Light Etch",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Subtle light etching pattern delivering soft diffusion while maintaining a bright ambiance."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SXGF-0097 Deep Etch",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["commercial"],
+      "price_tier": "premium",
+      "exterior_ok": false,
+      "description": "Pronounced etched pattern with higher opacity for maximum privacy in professional settings."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1301 Clear Frost",
+      "category": "decorative",
+      "use_cases": ["privacy", "light_diffusion"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "value",
+      "exterior_ok": false,
+      "description": "Simple clear frost film providing privacy without significantly reducing daylight."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1002 Clear Sand Blast",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Mimics the aesthetic of sandblasted glass for refined, semi-private spaces."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1303 Grey Frost",
+      "category": "decorative",
+      "use_cases": ["privacy", "light_diffusion"],
+      "install_location": ["interior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Neutral grey-tinted frost film offering subtle privacy with a modern tone."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "SX-1305 Bronze Frost",
+      "category": "decorative",
+      "use_cases": ["privacy", "design"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "hospitality"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Warm bronze frosted finish adding sophistication and a hint of color to glass partitions."
+    }
+  ]
+},
+{
+  "brand": "HD Clear",
+  "brand_page_url": "http://scottishwindowtinting.com/window-tinting-products/hd-clear/",
+  "products": [
+    {
+      "series": "Decorative",
+      "product_name": "HDClear",
+      "category": "decorative",
+      "use_cases": ["branding", "graphics", "design"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "premium",
+      "exterior_ok": false,
+      "description": "Full-color custom printed film designed for branding and creative glass graphics."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "HDFrost",
+      "category": "decorative",
+      "use_cases": ["privacy", "design", "diffused_light"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "High-quality frosted film providing privacy and soft light diffusion with a customizable finish."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "HDWhite",
+      "category": "decorative",
+      "use_cases": ["privacy", "aesthetic"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Solid white film ideal for full privacy or creative partitioning in offices and retail environments."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "HDFade",
+      "category": "decorative",
+      "use_cases": ["design", "aesthetic", "branding"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Gradient fade transition film allowing seamless visual blending from opaque to transparent."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "HDView",
+      "category": "decorative",
+      "use_cases": ["branding", "visibility", "design"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Printable one-way view film enabling external graphics while maintaining interior visibility."
+    },
+    {
+      "series": "Decorative",
+      "product_name": "HDEnhance",
+      "category": "decorative",
+      "use_cases": ["design", "branding"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Film designed to enhance printed colors and clarity in custom installations and brand applications."
+    },
+    {
+      "series": "Specialty",
+      "product_name": "HDLam",
+      "category": "protective",
+      "use_cases": ["durability", "surface_protection"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "value",
+      "exterior_ok": false,
+      "description": "Protective overlaminate used for extending the life of printed graphics and installations."
+    },
+    {
+      "series": "Specialty",
+      "product_name": "HDCling",
+      "category": "temporary",
+      "use_cases": ["removable_graphics", "events", "promotions"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "retail"],
+      "price_tier": "value",
+      "exterior_ok": false,
+      "description": "Static cling printable film for short-term or reusable window graphics with no adhesive residue."
+    }
+  ]
+},
+{
+  "brand": "Drywired",
+  "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/drywired-liquid-nanotint/",
+  "products": [
+    {
+      "series": "Liquid NanoTint",
+      "product_name": "Liquid NanoTint",
+      "category": "solar_control",
+      "use_cases": ["heat", "uv", "energy_savings"],
+      "install_location": ["interior"],
+      "property_types": ["residential", "commercial"],
+      "price_tier": "premium",
+      "exterior_ok": false,
+      "description": "Transparent liquid-applied nanotechnology coating that provides thermal insulation and UV protection without altering glass appearance."
+    }
+  ]
+},
+{
+  "brand": "Orafol",
+  "brand_page_url": "",
+  "products": [
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5061 Transparent Film",
+      "category": "plotter",
+      "use_cases": ["signage", "graphics"],
+      "install_location": ["interior", "exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Transparent reflective film designed for plotter and lettering applications."
+    },
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5071 Lettering Film",
+      "category": "plotter",
+      "use_cases": ["signage", "decals"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Durable reflective lettering film ideal for outdoor graphics and safety markings."
+    },
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5081 Lettering Film",
+      "category": "plotter",
+      "use_cases": ["signage", "graphics"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "High-visibility lettering film for commercial and safety applications."
+    },
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5300 Commercial Grade",
+      "category": "plotter",
+      "use_cases": ["commercial_signage", "graphics"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "value",
+      "exterior_ok": true,
+      "description": "Economical reflective film for general signage and commercial graphics."
+    },
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5500 Engineer Grade",
+      "category": "plotter",
+      "use_cases": ["road_signs", "safety_markings"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial", "industrial"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Engineer-grade reflective film providing excellent outdoor durability and visibility."
+    },
+    {
+      "series": "Plotter Films",
+      "product_name": "ORALITE® 5600 Fleet Engineer Grade",
+      "category": "fleet",
+      "use_cases": ["fleet_markings", "graphics"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial", "automotive"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Flexible reflective film ideal for fleet vehicle graphics."
+    },
+    {
+      "series": "Digital & Screen Printing Films",
+      "product_name": "ORAJET® 3164",
+      "category": "digital_printing",
+      "use_cases": ["printing", "graphics"],
+      "install_location": ["interior", "exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "value",
+      "exterior_ok": true,
+      "description": "Versatile calendered film for digital printing and short-term outdoor graphics."
+    },
+    {
+      "series": "Digital & Screen Printing Films",
+      "product_name": "ORAJET® 3651RA",
+      "category": "digital_printing",
+      "use_cases": ["advertising", "vehicle_wraps"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial", "automotive"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "High-quality polymeric vinyl with RapidAir® technology for bubble-free installation."
+    },
+    {
+      "series": "Laminating Films",
+      "product_name": "ORAGUARD® 210",
+      "category": "lamination",
+      "use_cases": ["protection", "print_lamination"],
+      "install_location": ["interior", "exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "value",
+      "exterior_ok": true,
+      "description": "Economical UV-protective laminating film for short to medium-term applications."
+    },
+    {
+      "series": "Laminating Films",
+      "product_name": "ORAGUARD® 290",
+      "category": "lamination",
+      "use_cases": ["uv_protection", "print_preservation"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial"],
+      "price_tier": "mid",
+      "exterior_ok": true,
+      "description": "Premium cast PVC laminating film providing long-term outdoor durability."
+    },
+    {
+      "series": "Specialty Films",
+      "product_name": "ORACAL® 970RA Premium Wrapping Cast",
+      "category": "specialty",
+      "use_cases": ["vehicle_wraps", "graphics"],
+      "install_location": ["exterior"],
+      "property_types": ["commercial", "automotive"],
+      "price_tier": "premium",
+      "exterior_ok": true,
+      "description": "Premium cast wrapping film designed for full vehicle wraps with repositionable adhesive."
+    },
+    {
+      "series": "Specialty Films",
+      "product_name": "ORACAL® 975 Premium Structure Cast",
+      "category": "specialty",
+      "use_cases": ["vehicle_wraps", "texture_effects"],
+      "install_location": ["exterior"],
+      "property_types": ["automotive"],
+      "price_tier": "premium",
+      "exterior_ok": true,
+      "description": "Textured cast film offering unique surface effects for custom automotive and architectural wraps."
+    },
+    {
+      "series": "Specialty Films",
+      "product_name": "ORACAL® 8510 Etched Glass Cal",
+      "category": "decorative",
+      "use_cases": ["privacy", "decor"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "residential"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Etched glass effect film used for interior decorative and privacy applications."
+    },
+    {
+      "series": "Specialty Films",
+      "product_name": "ORACAL® 8710 Dusted Glass Cal",
+      "category": "decorative",
+      "use_cases": ["privacy", "aesthetic"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "residential"],
+      "price_tier": "mid",
+      "exterior_ok": false,
+      "description": "Soft dusted glass effect film providing elegant light diffusion for interior glass."
+    },
+    {
+      "series": "Specialty Films",
+      "product_name": "ORALUX® 9300 Luminescent Cast",
+      "category": "specialty",
+      "use_cases": ["safety", "emergency_signage"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "industrial"],
+      "price_tier": "premium",
+      "exterior_ok": true,
+      "description": "Photoluminescent cast film that glows in the dark for safety and emergency signage."
+    }
+  ]
+},
+{
+  "brand": "C-Bond",
+  "brand_page_url": "https://scottishwindowtinting.com/window-tinting-products/c-bond/",
+  "products": [
+    {
+      "series": "Glass Strengthener",
+      "product_name": "C-Bond Spec Sheet",
+      "category": "security",
+      "use_cases": ["glass_strengthening", "safety", "security"],
+      "install_location": ["interior"],
+      "property_types": ["commercial", "residential"],
+      "price_tier": "premium",
+      "exterior_ok": false,
+      "description": "Nano-technology primer applied to glass surfaces that significantly improves film adhesion and enhances glass structural integrity."
+    }
+  ]
+}
+]

@@ -1,0 +1,180 @@
+{
+  "films": [
+    {
+      "sku": "solar-pro-1400",
+      "brand": "SolarPro",
+      "category": "glare_reduction",
+      "film_type": "Glare Reduction",
+      "pricing_group": 1,
+      "base_cost_range": [0, 1.43],
+      "visible_light_transmission": 15,
+      "uv_rejection_pct": 99,
+      "ir_reduction_pct": 45,
+      "warranty_years": 10,
+      "best_for": ["residential", "commercial"],
+      "use_cases": ["glare", "basic_solar_control"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 17.98,
+        "commercial": 14.98
+      },
+      "notes": "Entry-level glare reduction, low visible light transmission"
+    },
+    {
+      "sku": "solar-elite-1500",
+      "brand": "SolarElite",
+      "category": "solar_control",
+      "film_type": "Energy / Heat Control",
+      "pricing_group": 2,
+      "base_cost_range": [1.26, 1.58],
+      "visible_light_transmission": 35,
+      "uv_rejection_pct": 99,
+      "ir_reduction_pct": 75,
+      "warranty_years": 15,
+      "best_for": ["residential", "commercial"],
+      "use_cases": ["heat", "energy_savings", "fade_protection", "glare"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 19.18,
+        "commercial": 15.98
+      },
+      "notes": "Balanced visible light and heat rejection, energy efficient"
+    },
+    {
+      "sku": "deco-frost-2000",
+      "brand": "DecoFilm",
+      "category": "decorative",
+      "film_type": "Decorative / Frosted",
+      "pricing_group": 3,
+      "base_cost_range": [2.02, 2.22],
+      "visible_light_transmission": 60,
+      "uv_rejection_pct": 95,
+      "ir_reduction_pct": 20,
+      "warranty_years": 7,
+      "best_for": ["residential", "commercial"],
+      "use_cases": ["privacy", "aesthetics", "branding"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 20.38,
+        "commercial": 16.98
+      },
+      "notes": "Frosted appearance, light diffusion, privacy without blocking light"
+    },
+    {
+      "sku": "secure-shield-2500",
+      "brand": "SecureGuard",
+      "category": "security",
+      "film_type": "Security & Safety",
+      "pricing_group": 4,
+      "base_cost_range": [2.5, 3],
+      "visible_light_transmission": 85,
+      "uv_rejection_pct": 99,
+      "ir_reduction_pct": 30,
+      "warranty_years": 12,
+      "best_for": ["commercial", "residential"],
+      "use_cases": ["security", "safety", "shatter_resistance", "storm_protection"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 22.69,
+        "commercial": 18.91
+      },
+      "notes": "4-mil to 8-mil thickness, holds glass together on impact, meets safety standards"
+    },
+    {
+      "sku": "privacy-pro-3000",
+      "brand": "PrivacyPro",
+      "category": "privacy",
+      "film_type": "Privacy / One-Way Mirror",
+      "pricing_group": 5,
+      "base_cost_range": [3, 4],
+      "visible_light_transmission": 25,
+      "uv_rejection_pct": 99,
+      "ir_reduction_pct": 65,
+      "warranty_years": 10,
+      "best_for": ["commercial", "residential"],
+      "use_cases": ["privacy", "security", "heat", "glare"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 26.15,
+        "commercial": 21.79
+      },
+      "notes": "Reflective exterior, daytime privacy, dual purpose solar control and privacy"
+    },
+    {
+      "sku": "bird-safe-4000",
+      "brand": "BirdSafe",
+      "category": "bird_strike_prevention",
+      "film_type": "Bird Strike Prevention",
+      "pricing_group": 6,
+      "base_cost_range": [4, 5],
+      "visible_light_transmission": 70,
+      "uv_rejection_pct": 99,
+      "ir_reduction_pct": 40,
+      "warranty_years": 8,
+      "best_for": ["commercial"],
+      "use_cases": ["bird_protection", "safety", "environmental_compliance"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 29.87,
+        "commercial": 24.89
+      },
+      "notes": "Visible patterns to birds (UV spectrum), nearly invisible to humans, meets LEED requirements"
+    },
+    {
+      "sku": "uv-max-5000",
+      "brand": "UVMax",
+      "category": "uv_protection",
+      "film_type": "UV Protection",
+      "pricing_group": 7,
+      "base_cost_range": [5, 7.6],
+      "visible_light_transmission": 88,
+      "uv_rejection_pct": 99.9,
+      "ir_reduction_pct": 85,
+      "warranty_years": 20,
+      "best_for": ["residential", "commercial"],
+      "use_cases": ["fade_protection", "uv_blocking", "heat", "museum_grade"],
+      "typical_installed_price_per_sqft_usd": {
+        "residential": 34.74,
+        "commercial": 28.95
+      },
+      "notes": "Premium ceramic or spectrally-selective film, maximum UV blocking, museum and archival quality"
+    }
+  ],
+  "add_ons": [
+    {
+      "name": "Old Film Removal",
+      "price_per_sqft_usd": 2.0,
+      "description": "Professional removal of existing window film"
+    },
+    {
+      "name": "Attachment System",
+      "price_per_sqft_usd": 1.5,
+      "description": "Mechanical attachment system for enhanced security film performance"
+    },
+    {
+      "name": "Custom Graphics",
+      "price_per_sqft_usd": null,
+      "description": "Custom printed graphics or logos - priced per project"
+    },
+    {
+      "name": "Warranty Extension",
+      "price_per_sqft_usd": null,
+      "description": "Extended warranty coverage - priced per project"
+    }
+  ],
+  "discount_rules": {
+    "volume_discount": {
+      "threshold_usd": 50000,
+      "discount_percentage": 20,
+      "description": "20% discount applied to orders over $50,000"
+    }
+  },
+  "metadata": {
+    "pricing_groups": [
+      { "group": 1, "base_cost_range": [0, 1.43], "rate_per_sqft": 14.98 },
+      { "group": 2, "base_cost_range": [1.26, 1.58], "rate_per_sqft": 15.98 },
+      { "group": 3, "base_cost_range": [2.02, 2.22], "rate_per_sqft": 16.98 },
+      { "group": 4, "base_cost_range": [2.5, 3], "rate_per_sqft": 18.91 },
+      { "group": 5, "base_cost_range": [3, 4], "rate_per_sqft": 21.79 },
+      { "group": 6, "base_cost_range": [4, 5], "rate_per_sqft": 24.89 },
+      { "group": 7, "base_cost_range": [5, 7.6], "rate_per_sqft": 28.95 }
+    ],
+    "building_types": ["Residential", "Commercial"],
+    "residential_markup_percentage": 20,
+    "note": "Residential pricing includes 20% markup over commercial rates"
+  }
+}
