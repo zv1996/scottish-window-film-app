@@ -17,15 +17,15 @@ const MODE = (process.env.MCP_MODE || "stdio").toLowerCase();
 
 if (MODE === "http" || MODE === "http1") {
   const PORT = Number(process.env.PORT || 2091);
-  const PATH = process.env.MCP_PATH || "/mcp"; // Connector URL should point here
+  const PATH = process.env.MCP_PATH || "/mcp";
 
   const app = express();
 
-  // If you later re-enable bearer auth, add a small middleware here
-  // app.use(PATH, (req, res, next) => { /* auth */ next(); });
-
-  // optional: basic health check for Render (only works in HTTP mode)
+  // Health for Render
   app.get("/healthz", (_req, res) => res.status(200).send("ok"));
+
+  // ✅ Important: connector GET probe
+  app.get(PATH, (_req, res) => res.status(200).send("mcp ok"));
 
   const transport = new StreamableHTTPServerTransport({ app, path: PATH } as any);
   await server.connect(transport);
