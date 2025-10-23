@@ -1,31 +1,11 @@
 {
-  "name": "scottish-window-film-app",
-  "version": "1.0.0",
+  "name": "scottish-window-film-mcp",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "tsx src/server.ts",
-    "smoke": "tsx src/smoke.ts"
+    "start": "node server.js"
   },
-  "engines": { 
-    "node": "20.x"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.20.1",
-    "express": "^5.1.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
-    "zod": "^3.25.76"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.9.1",
-    "tsx": "^4.20.6"
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
   }
 }
