@@ -72,7 +72,45 @@ const transport = new StreamableHTTPServerTransport({
 // Wire HTTP entrypoint for MCP. All MCP traffic (handshake, tool calls, etc) flows through here.
 app.all(PATH, async (req, res) => {
   try {
-    await transport.handleRequest(req, res, (req as any).body);
+    // Grab the parsed body from Express (may be {} for GET/HEAD)
+    let body: any = (req as any).body;
+
+    // If there's effectively no body (GET /mcp, HEAD /mcp), pass undefined
+    if (
+      body &&
+      typeof body === "object" &&
+      !Array.isArray(body) &&
+      Object.keys(body).length === 0
+    ) {
+      body = undefined;
+    }
+
+    // Helper to normalize init requests from old clients
+    const normalizeInit = (msg: any) => {
+      if (
+        msg &&
+        msg.jsonrpc === "2.0" &&
+        msg.method === "initialize" &&
+        msg.params &&
+        typeof msg.params === "object" &&
+        msg.params.client &&              // old field
+        !msg.params.clientInfo            // new field missing
+      ) {
+        msg.params.clientInfo = msg.params.client;
+        delete msg.params.client;
+      }
+      return msg;
+    };
+
+    // If body is an array (batch), normalize each element
+    if (Array.isArray(body)) {
+      body = body.map(normalizeInit);
+    } else {
+      body = normalizeInit(body);
+    }
+
+    // Hand off to the MCP transport with the normalized body
+    await transport.handleRequest(req, res, body);
   } catch (err) {
     console.error("❌ MCP request handler error:", err);
     if (!res.headersSent) {
