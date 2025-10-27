@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
@@ -27,6 +28,7 @@ if (MODE === "http" || MODE === "http1") {
   const PATH = process.env.MCP_PATH || "/mcp";
 
   const app = express();
+  app.use(express.json({ limit: "4mb" }));
 
 // Log incoming requests so we can see what the connector does
 app.use((req, _res, next) => {
@@ -52,21 +54,36 @@ app.use((_req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Expose-Headers", "Mcp-Session-Id");
   next();
 });
 
 // Fast-path preflight for the connector
 app.options(PATH, (_req, res) => res.status(204).end());
 
-  // Health for Render
-  app.get("/healthz", (_req, res) => res.status(200).send("ok"));
+// Health for Render
+app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 
-  // ✅ Important: connector GET probe
-  app.get(PATH, (_req, res) => res.status(200).send("mcp ok"));
+// Create one transport instance for this server
+const transport = new StreamableHTTPServerTransport({
+  sessionIdGenerator: () => randomUUID(),
+});
 
-  const transport = new StreamableHTTPServerTransport({ app, path: PATH } as any);
-  await server.connect(transport);
-  console.log(`✅ HTTP transport mounted at ${PATH}`);
+// Wire HTTP entrypoint for MCP. All MCP traffic (handshake, tool calls, etc) flows through here.
+app.all(PATH, async (req, res) => {
+  try {
+    await transport.handleRequest(req, res, (req as any).body);
+  } catch (err) {
+    console.error("❌ MCP request handler error:", err);
+    if (!res.headersSent) {
+      res.status(500).json({ error: "internal MCP handler error" });
+    }
+  }
+});
+
+// Connect the MCP server to the transport once at startup
+await server.connect(transport);
+console.log(`✅ HTTP transport mounted at ${PATH}`);
 
   app.listen(PORT, () => {
     console.log(`✅ MCP HTTP listening at http://0.0.0.0:${PORT}${PATH}`);
