@@ -65,9 +65,7 @@ app.options(PATH, (_req, res) => res.status(204).end());
 app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 
 // Create one transport instance for this server
-const transport = new StreamableHTTPServerTransport({
-  sessionIdGenerator: () => randomUUID(),
-});
+const transport = new StreamableHTTPServerTransport({});
 
 // Wire HTTP entrypoint for MCP. All MCP traffic (handshake, tool calls, etc) flows through here.
 app.all(PATH, async (req, res) => {
