@@ -7,6 +7,29 @@ const films = Array.isArray(filmsData)
   ? (filmsData as any[])
   : ((filmsData as any).films ?? []);
 
+// Pick a default set of SKUs to quote when the caller doesn't provide any.
+// We choose films that:
+// - are allowed for the given property type (residential/commercial)
+// - actually have pricing data for that property type
+// We then take up to the first 3.
+function pickDefaultSkus(
+  allFilms: any[],
+  propertyType: "residential" | "commercial"
+): string[] {
+  return allFilms
+    .filter(
+      (f: any) =>
+        Array.isArray(f.best_for) &&
+        f.best_for.includes(propertyType) &&
+        f.typical_installed_price_per_sqft_usd &&
+        f.typical_installed_price_per_sqft_usd[propertyType] &&
+        f.typical_installed_price_per_sqft_usd[propertyType] > 0
+    )
+    .slice(0, 3)
+    .map((f: any) => f.sku)
+    .filter((sku: any) => typeof sku === "string");
+}
+
 // This schema MUST be real Zod validators so the MCP SDK can:
 // - generate JSON schema for the connector UI
 // - validate incoming args before calling the handler
@@ -60,12 +83,19 @@ export const estimatePrice = {
       sku_list?: string[];
     } = input;
 
-    // Our existing pricing logic expects:
+    // Decide which SKUs to price:
+    // - If caller provided sku_list, use that.
+    // - Otherwise, pick up to 3 good default films for this property type.
+    const fallbackSkus = pickDefaultSkus(films as any[], property_type);
+    const finalSkuList =
+      sku_list && sku_list.length > 0 ? sku_list : fallbackSkus;
+
+    // Run pricing for those SKUs.
+    // calculatePricing expects:
     // (filmsArray, skuList, totalWindowAreaSqFt, propertyType)
-    const safeSkuList = sku_list ?? [];
     const quotes = calculatePricing(
       films as any[],
-      safeSkuList,
+      finalSkuList,
       Number(square_feet),
       property_type
     );

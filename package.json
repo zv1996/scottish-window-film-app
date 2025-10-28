@@ -9,7 +9,7 @@
     "dev": "tsx src/server.ts",
     "smoke": "tsx src/smoke.ts"
   },
-  "engines": { 
+  "engines": {
     "node": "20.x"
   },
   "keywords": [],
