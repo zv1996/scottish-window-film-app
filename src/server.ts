@@ -34,19 +34,7 @@ server.registerTool(
     description:
       "Returns the Scottish Window Tinting intake panel to collect user goals and context before calling recommendation/pricing tools.",
     inputSchema: z.object({
-      preset: z
-        .object({
-          property_type: z.enum(["residential", "commercial"]).optional(),
-          goals: z.array(z.enum(["heat", "glare", "uv", "privacy", "safety"])).optional(),
-          application: z.string().optional(),
-          vlt_preference: z.enum(["clearer", "balanced", "darker"]).optional(),
-          budget_level: z.enum(["entry", "mid", "premium"]).optional(),
-          install_location: z.enum(["interior", "exterior"]).optional(),
-          sun_exposure: z.enum(["low", "medium", "high"]).optional(),
-          orientation: z.enum(["north", "south", "east", "west"]).optional(),
-          square_feet: z.number().optional(),
-        })
-        .optional(),
+      preset: z.any().optional(),
     }),
   } as any,
   async (args: any) => {
