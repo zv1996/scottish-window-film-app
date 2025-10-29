@@ -40,15 +40,10 @@ server.registerTool(
   async (args: any) => {
     const preset = (args && args.preset) || {};
     const panel = buildIntakeComponents(preset);
+    const json = JSON.stringify(panel);
     return {
       content: [
-        {
-          type: "resource",
-          resource: {
-            mimeType: "application/json",
-            text: JSON.stringify(panel),
-          },
-        },
+        { type: "text", text: json }
       ],
       structuredContent: { panel },
     };
