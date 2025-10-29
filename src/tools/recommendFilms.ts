@@ -1,11 +1,78 @@
 import { z } from "zod";
-import filmsData from "../data/films.json" with { type: "json" };
+import productsData from "../data/products.json" with { type: "json" };
 import { scoreFilms } from "../lib/scoring.js";
 
-// Normalize films data into an array
-const films = Array.isArray(filmsData)
-  ? (filmsData as any[])
-  : ((filmsData as any).films ?? []);
+// Flatten products.json into a normalized "film-like" array that scoreFilms can consume.
+// Each brand block in products.json looks like:
+// {
+//   brand: "Huper Optik",
+//   products: [ { product_name, use_cases, property_types, ... }, ... ]
+// }
+//
+// scoreFilms expects fields like:
+// - sku (string)
+// - brand (string)
+// - use_cases (string[])
+// - best_for (string[])  <-- we'll map from product.property_types
+// - visible_light_transmission, ir_reduction_pct, uv_rejection_pct (optional)
+//
+// We'll synthesize sku as "<brand>-<product_name>" lowercased/kebabed.
+function toKebab(input: string): string {
+  return String(input || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
+const films = (() => {
+  // productsData may be an array of brand blocks or an object with { brands: [...] }
+  const brandBlocks = Array.isArray(productsData)
+    ? (productsData as any[])
+    : (productsData as any).brands || [];
+
+  const out: any[] = [];
+  for (const block of brandBlocks) {
+    const brandName = block.brand || "Unknown";
+    const items = Array.isArray(block.products) ? block.products : [];
+    for (const p of items) {
+      const skuSynth = `${toKebab(brandName)}-${toKebab(
+        p.product_name || p.series || "film"
+      )}`;
+
+      out.push({
+        sku: skuSynth,
+        brand: brandName,
+        product_name: p.product_name ?? p.series ?? "Unknown",
+        category: p.category,
+        description: p.description,
+        // map property_types -> best_for to match scoreFilms expectations
+        best_for: Array.isArray(p.property_types)
+          ? p.property_types
+          : [],
+        // pass through what problems this film solves
+        use_cases: Array.isArray(p.use_cases) ? p.use_cases : [],
+        // optional hints, if present in products.json
+        visible_light_transmission:
+          (p as any).visible_light_transmission ??
+          (p as any).vlt ??
+          undefined,
+        ir_reduction_pct:
+          (p as any).ir_reduction_pct ??
+          (p as any).ir_reduction ??
+          undefined,
+        uv_rejection_pct:
+          (p as any).uv_rejection_pct ??
+          (p as any).uv_rejection ??
+          undefined,
+        install_location: p.install_location,
+        price_tier: p.price_tier,
+        exterior_ok: p.exterior_ok,
+      });
+    }
+  }
+  return out;
+})();
 
 // Zod validators for the tool's input.
 // Required: property_type, goals
@@ -147,7 +214,8 @@ export const recommendFilms = {
       };
     }
 
-    // scoreFilms ranks our films for their goals + property context
+    // scoreFilms ranks our normalized product catalog (from products.json)
+    // for the requested goals and property type, then returns the top matches.
     const recs = scoreFilms(films as any[], {
       property_type,
       goals,
