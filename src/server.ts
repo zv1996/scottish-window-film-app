@@ -33,9 +33,9 @@ server.registerTool(
     name: "get_intake_panel",
     description:
       "Returns the Scottish Window Tinting intake panel to collect user goals and context before calling recommendation/pricing tools.",
-    inputSchema: z.object({
+    inputSchema: {
       preset: z.any().optional(),
-    }),
+    } as any,
   } as any,
   async (args: any) => {
     const preset = (args && args.preset) || {};
