@@ -47,8 +47,11 @@ server.registerTool(
     return {
       content: [
         {
-          type: "json",
-          json: panel,
+          type: "resource",
+          resource: {
+            mimeType: "application/json",
+            text: JSON.stringify(panel),
+          },
         },
       ],
       structuredContent: { panel },
