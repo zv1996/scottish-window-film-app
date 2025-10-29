@@ -6,6 +6,11 @@ import express from "express";
 
 import { recommendFilms } from "./tools/recommendFilms.js";
 import { estimatePrice } from "./tools/estimatePrice.js";
+import {
+  buildIntakeComponents,
+  intakeToRecommendArgs,
+  intakeToEstimateArgs,
+} from "./ui/intakePanel.js";
 
 process.on("uncaughtException", (err) => {
   console.error("💥 Uncaught exception:", err?.stack || err);
@@ -19,6 +24,37 @@ const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" })
 // relax types for now
 server.registerTool(recommendFilms.name, recommendFilms.descriptor as any, recommendFilms.handler as any);
 server.registerTool(estimatePrice.name, estimatePrice.descriptor as any, estimatePrice.handler as any);
+
+// UI: return the intake panel (Apps SDK components-like plan)
+server.registerTool(
+  "get_intake_panel",
+  {
+    name: "get_intake_panel",
+    description:
+      "Returns the Scottish Window Tinting intake panel to collect user goals and context before calling recommendation/pricing tools.",
+    inputSchema: {
+      // Keep schema permissive: optional 'preset' object to pre-fill the panel
+      type: "object",
+      properties: {
+        preset: { type: "object", description: "Optional default values to prefill the panel." },
+      },
+      additionalProperties: false,
+    } as any,
+  } as any,
+  async (args: any) => {
+    const preset = (args && args.preset) || {};
+    const panel = buildIntakeComponents(preset);
+    return {
+      content: [
+        {
+          type: "json",
+          json: panel,
+        },
+      ],
+      structuredContent: { panel },
+    };
+  }
+);
 
 // Dual-mode: stdio (local) or HTTP (Render/Connector)
 const MODE = (process.env.MCP_MODE || "stdio").toLowerCase();
