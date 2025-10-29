@@ -3,6 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import express from "express";
+import { z } from "zod";
 
 import { recommendFilms } from "./tools/recommendFilms.js";
 import { estimatePrice } from "./tools/estimatePrice.js";
@@ -32,14 +33,21 @@ server.registerTool(
     name: "get_intake_panel",
     description:
       "Returns the Scottish Window Tinting intake panel to collect user goals and context before calling recommendation/pricing tools.",
-    inputSchema: {
-      // Keep schema permissive: optional 'preset' object to pre-fill the panel
-      type: "object",
-      properties: {
-        preset: { type: "object", description: "Optional default values to prefill the panel." },
-      },
-      additionalProperties: false,
-    } as any,
+    inputSchema: z.object({
+      preset: z
+        .object({
+          property_type: z.enum(["residential", "commercial"]).optional(),
+          goals: z.array(z.enum(["heat", "glare", "uv", "privacy", "safety"])).optional(),
+          application: z.string().optional(),
+          vlt_preference: z.enum(["clearer", "balanced", "darker"]).optional(),
+          budget_level: z.enum(["entry", "mid", "premium"]).optional(),
+          install_location: z.enum(["interior", "exterior"]).optional(),
+          sun_exposure: z.enum(["low", "medium", "high"]).optional(),
+          orientation: z.enum(["north", "south", "east", "west"]).optional(),
+          square_feet: z.number().optional(),
+        })
+        .optional(),
+    }),
   } as any,
   async (args: any) => {
     const preset = (args && args.preset) || {};
