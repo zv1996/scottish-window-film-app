@@ -7,6 +7,7 @@ import { z } from "zod";
 
 import { recommendFilms } from "./tools/recommendFilms.js";
 import { estimatePrice } from "./tools/estimatePrice.js";
+import { registerSubmitIntake } from "./tools/submitIntake.js";
 import {
   buildIntakeComponents,
   intakeToRecommendArgs,
@@ -25,6 +26,7 @@ const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" })
 // relax types for now
 server.registerTool(recommendFilms.name, recommendFilms.descriptor as any, recommendFilms.handler as any);
 server.registerTool(estimatePrice.name, estimatePrice.descriptor as any, estimatePrice.handler as any);
+registerSubmitIntake(server);
 
 // UI: return the intake panel (Apps SDK components-like plan)
 server.registerTool(
