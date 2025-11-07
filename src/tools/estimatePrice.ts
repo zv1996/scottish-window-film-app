@@ -7,29 +7,6 @@ const films = Array.isArray(filmsData)
   ? (filmsData as any[])
   : ((filmsData as any).films ?? []);
 
-// Pick a default set of SKUs to quote when the caller doesn't provide any.
-// We choose films that:
-// - are allowed for the given property type (residential/commercial)
-// - actually have pricing data for that property type
-// We then take up to the first 3.
-function pickDefaultSkus(
-  allFilms: any[],
-  propertyType: "residential" | "commercial"
-): string[] {
-  return allFilms
-    .filter(
-      (f: any) =>
-        Array.isArray(f.best_for) &&
-        f.best_for.includes(propertyType) &&
-        f.typical_installed_price_per_sqft_usd &&
-        f.typical_installed_price_per_sqft_usd[propertyType] &&
-        f.typical_installed_price_per_sqft_usd[propertyType] > 0
-    )
-    .slice(0, 3)
-    .map((f: any) => f.sku)
-    .filter((sku: any) => typeof sku === "string");
-}
-
 // This schema MUST be real Zod validators so the MCP SDK can:
 // - generate JSON schema for the connector UI
 // - validate incoming args before calling the handler
@@ -45,16 +22,6 @@ const estimatePriceInputSchema = {
       description:
         "Type of property. Used for pricing model and labor rate assumptions.",
     }),
-  // Optional: let the caller specify up to 3 candidate films by SKU
-  // If not provided, we'll let calculatePricing decide top films.
-  sku_list: z
-    .array(z.string(), {
-      description:
-        "Optional list of up to 3 film SKUs to quote. If omitted, best matches will be auto-selected.",
-    })
-    .min(1)
-    .max(3)
-    .optional(),
 };
 
 // Export the tool in the shape the MCP server expects:
@@ -66,7 +33,7 @@ export const estimatePrice = {
   descriptor: {
     title: "Estimate Price",
     description:
-      "Estimates installed price range for up to 3 recommended films based on total glass area and property type.",
+      "Estimates installed price range from baseline tiers (value/mid/premium) based on total glass area and property type. When specific SKUs are not supplied, returns tiered ranges.",
     // IMPORTANT: this must be the raw shape object of Zod validators,
     // NOT friendly strings.
     inputSchema: estimatePriceInputSchema,
@@ -76,29 +43,56 @@ export const estimatePrice = {
     const {
       square_feet,
       property_type,
-      sku_list,
+      budget_level,
     }: {
       square_feet: number;
       property_type: "residential" | "commercial";
-      sku_list?: string[];
+      budget_level?: "value" | "mid" | "premium";
     } = input;
 
-    // Decide which SKUs to price:
-    // - If caller provided sku_list, use that.
-    // - Otherwise, pick up to 3 good default films for this property type.
-    const fallbackSkus = pickDefaultSkus(films as any[], property_type);
-    const finalSkuList =
-      sku_list && sku_list.length > 0 ? sku_list : fallbackSkus;
+    // Baseline tier pricing (no SKUs). Use different ranges per property type.
+    // Residential is a bit lower; commercial assumes higher labor/access costs.
+    const tiers =
+      property_type === "commercial"
+        ? [
+            { id: "baseline_value",   low: 16, high: 21 },
+            { id: "baseline_mid",     low: 18, high: 23 },
+            { id: "baseline_premium", low: 20, high: 26 },
+          ]
+        : [
+            { id: "baseline_value",   low: 14, high: 19 },
+            { id: "baseline_mid",     low: 16, high: 21 },
+            { id: "baseline_premium", low: 18, high: 24 },
+          ];
 
-    // Run pricing for those SKUs.
-    // calculatePricing expects:
-    // (filmsArray, skuList, totalWindowAreaSqFt, propertyType)
-    const quotes = calculatePricing(
-      films as any[],
-      finalSkuList,
-      Number(square_feet),
-      property_type
-    );
+    let quotes;
+    let price_range;
+
+    if (budget_level) {
+      const activeTier = tiers.find(t => t.id === `baseline_${budget_level}`);
+      quotes = activeTier
+        ? [{
+            sku: activeTier.id,
+            unit_price_low: activeTier.low,
+            unit_price_high: activeTier.high,
+            subtotal_low: Number((square_feet * activeTier.low).toFixed(2)),
+            subtotal_high: Number((square_feet * activeTier.high).toFixed(2)),
+            notes: "Estimate ±15% for access and complexity.",
+          }]
+        : [];
+      if (activeTier) {
+        price_range = `$${(square_feet*activeTier.low).toLocaleString()} – $${(square_feet*activeTier.high).toLocaleString()}`;
+      }
+    } else {
+      quotes = tiers.map((t) => ({
+        sku: t.id,
+        unit_price_low: t.low,
+        unit_price_high: t.high,
+        subtotal_low: Number((square_feet * t.low).toFixed(2)),
+        subtotal_high: Number((square_feet * t.high).toFixed(2)),
+        notes: "Estimate ±15% for access and complexity.",
+      }));
+    }
 
     // Return both human text (for normal chat)
     // and machine-structured JSON (for programmatic use / actions UI)
@@ -113,6 +107,7 @@ export const estimatePrice = {
         square_feet,
         property_type,
         quotes,
+        ...(price_range ? { price_range } : {}),
       },
     };
   },
