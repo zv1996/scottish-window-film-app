@@ -31,7 +31,7 @@ export interface IntakeValues {
   budget_level?: BudgetLevel;
   install_location?: InstallLocation;
   sun_exposure?: SunExposure;
-  orientation?: Orientation;
+  orientation?: Orientation[];
   square_feet?: number;
   city?: string;
 }
@@ -127,7 +127,9 @@ export function normalizeIntake(input: Partial<IntakeValues>): IntakeValues {
     budget_level: input.budget_level || undefined,
     install_location: input.install_location || undefined,
     sun_exposure: input.sun_exposure || undefined,
-    orientation: input.orientation || undefined,
+    orientation: Array.isArray(input.orientation)
+      ? (uniq(input.orientation as Orientation[]) as Orientation[])
+      : (input.orientation ? [input.orientation as Orientation] : []),
     square_feet: toNumberOrUndefined(input.square_feet),
     city: input.city?.trim() || undefined,
   };
@@ -141,7 +143,7 @@ export function missingForHighConfidence(i: IntakeValues): string[] {
   if (!i.vlt_preference) missing.push("brightness / look preference");
   if (!i.budget_level) missing.push("budget comfort");
   if (!i.install_location) missing.push("interior vs exterior");
-  if (!i.sun_exposure && !i.orientation)
+  if (!i.sun_exposure && (!i.orientation || i.orientation.length === 0))
     missing.push("sun exposure or window orientation");
   return missing;
 }
@@ -188,11 +190,10 @@ export function buildIntakeComponents(
           },
           {
             id: "application",
-            kind: "select",
-            label: "Where is this going?",
-            placeholder: "Choose a room/area",
-            value: i.application ?? null,
-            options: APPLICATION_OPTIONS.map((v) => ({ label: v, value: v })),
+            kind: "text",
+            label: "Where will the window film be installed?",
+            placeholder: "e.g., bedrooms and living room",
+            value: i.application ?? "",
           },
         ],
       },
@@ -236,9 +237,10 @@ export function buildIntakeComponents(
           },
           {
             id: "orientation",
-            kind: "radio",
-            label: "Window orientation",
-            value: i.orientation ?? null,
+            kind: "checkbox-group",
+            label: "Window orientation (select all that apply)",
+            help: "If windows face more than one direction, choose all that apply.",
+            value: Array.isArray(i.orientation) ? i.orientation : [],
             options: ORIENTATION_OPTIONS,
           },
           {
@@ -285,7 +287,7 @@ export function intakeToRecommendArgs(
     budget_level: i.budget_level,
     install_location: i.install_location,
     sun_exposure: i.sun_exposure,
-    orientation: i.orientation,
+    orientation: (i.orientation && i.orientation.length ? i.orientation : undefined),
   };
 }
 
@@ -298,3 +300,21 @@ export function intakeToEstimateArgs(
     property_type: i.property_type,
   };
 }
+
+export const descriptor = {
+  name: "get_intake_panel",
+  description:
+    "Returns the Scottish Window Tinting intake panel to collect user goals and context before calling recommendation/pricing tools.",
+  input_schema: {
+    type: "object",
+    properties: {
+      preset: { type: "object", additionalProperties: true }
+    },
+    additionalProperties: false
+  }
+};
+
+export const handler = async (input?: { preset?: Partial<IntakeValues> }) => {
+  const panel = buildIntakeComponents(input?.preset ?? {});
+  return { ui: panel };
+};
