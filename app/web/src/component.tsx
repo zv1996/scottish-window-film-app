@@ -169,7 +169,7 @@ function App() {
               // 1) application -> text input + new label
               if (f.id === "application") {
                 return {
-                  id: "application",
+                  id: "application_text",
                   kind: "text",
                   label: "Where will the window film be installed?",
                   value: typeof f.value === "string" ? f.value : "",
@@ -323,34 +323,22 @@ function App() {
     setError(null);
     setSubmitResult(null);
     try {
-      // --- Option A shim: coerce free-text + multi-select to server schema ---
-      // application: map free text to enum when possible, else send "other" + application_note
-      const rawApp = (form["application"] ?? "").toString().trim();
-      const appEnums = new Set([
-        "living_room","bedroom","kitchen","bathroom",
-        "office","conference_room","storefront","lobby",
-        "server_room","warehouse","other"
-      ]);
-      const application = appEnums.has(rawApp) ? (rawApp as string) : "other";
-      const application_note = application === "other" && rawApp ? rawApp : undefined;
-
-      // orientation: server expects a single enum; if user picked many, send the first
-      const rawOrient = form["orientation"];
-      const orientation = Array.isArray(rawOrient)
-        ? (rawOrient[0] ?? undefined)
-        : (rawOrient || undefined);
-
+      // Build payload directly for server: free-text application and multi-orientation array
       const payload = {
         property_type: form["property_type"] || "residential",
         goals: Array.isArray(form["goals"]) ? form["goals"] : [],
-        application,
-        application_note,
+        application_text: (form["application_text"] ?? "").toString().trim(),
         vlt_preference: form["vlt_preference"] || undefined,
         budget_level: form["budget_level"] || undefined,
         install_location: form["install_location"] || undefined,
         sun_exposure: form["sun_exposure"] || undefined,
-        orientation,
-        square_feet: typeof form["square_feet"] === "number" ? form["square_feet"] : undefined,
+        orientation: Array.isArray(form["orientation"])
+          ? form["orientation"]
+          : (form["orientation"] ? [form["orientation"]] : []),
+        square_feet:
+          typeof form["square_feet"] === "number"
+            ? form["square_feet"]
+            : undefined,
         city: form["city"] || undefined,
       };
       const result: any = await callTool("submit_intake_panel", payload);
