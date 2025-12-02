@@ -202,7 +202,6 @@ export function registerSubmitIntake(server: McpServer) {
       };
     });
 
-    // Prefer estimator's formatted range when available
     const priceRange =
       range_text
         ? range_text
@@ -211,6 +210,24 @@ export function registerSubmitIntake(server: McpServer) {
                 quotes[quotes.length - 1].subtotal_high
               ).toLocaleString()}`
             : "—");
+
+    const filmCards = top.map((t: any) => {
+      const brand = t.brand ?? t.manufacturer ?? "";
+      const line  = t.line ?? t.series ?? t.collection ?? "";
+      const name  = t.name ?? t.product_name ?? t.model ?? "";
+      const category = t.category ?? "solar_control";
+      const tier = t.tier ?? t.price_tier ?? "mid";
+      const exteriorCap = (t.exterior_capable ?? t.exterior_ok) ? "exterior-capable" : "interior-only";
+      return {
+        brand,
+        line,
+        name,
+        category,
+        tier,
+        exteriorCap,
+        priceRange,
+      };
+    });
 
     // Chip summary for results description
     const chips = [
@@ -279,8 +296,9 @@ export function registerSubmitIntake(server: McpServer) {
         recArgs,
         estArgs,
         application_note,
-        recommendations: rec?.recommendations ?? [],
+        recommendations: getRecs(rec),
         quotes,
+        filmCards,
       },
     };
   };

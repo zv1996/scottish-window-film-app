@@ -376,10 +376,7 @@ export const recommendFilms = {
   descriptor: {
     title: "Recommend Window Films",
     description:
-      "Returns the top 3 film recommendations for this scenario. If critical context is missing (like brightness preference or application), asks clarifying questions instead of guessing.",
-    // MCP runtime will wrap this object with z.object() and use it
-    // for validation + tool schema exposure. Each property here must
-    // be a Zod validator, not a plain string.
+      "Returns the top 5 film recommendations for this scenario. If critical context is missing (like brightness preference or application), asks clarifying questions instead of guessing.",
     inputSchema: recommendFilmsInputSchema,
   },
   handler: async (input: any) => {

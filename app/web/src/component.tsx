@@ -1,412 +1,458 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom/client";
+import React, { useState, useRef } from "react";
 
-const MCP_URL = import.meta.env.VITE_MCP_URL ?? "/api/mcp";
+type FilmCard = {
+  brand: string;
+  productName: string;
+  type: string;
+  priceRange?: string;
+  logoUrl?: string;
+};
 
-/* ---------- transport helpers ---------- */
-async function initSession() {
-  const res = await fetch(MCP_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json, text/event-stream",
-    },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: 1,
-      method: "initialize",
-      params: {
-        protocolVersion: "2024-11-05",
-        capabilities: {},
-        clientInfo: { name: "swt-web-preview", version: "0.1.0" },
-      },
-    }),
-  });
-  // OK if this returns 200 with SSE — nothing else to do here.
-}
+const SAMPLE_DESCRIPTION =
+  "heat • glare • residential • living_room • neutral look • mid budget • interior install • high sun • west facing • 180 sq ft • Denver";
 
-async function rpcCall(method: string, params: any) {
-  const res = await fetch(MCP_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Keep both mime types so the MCP server accepts us, but be ready to parse SSE
-      "Accept": "application/json, text/event-stream",
-    },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: Date.now(),
-      method,
-      params,
-    }),
-  });
+const SAMPLE_CARDS: FilmCard[] = [
+  {
+    brand: "Huper Optik",
+    productName: "Ceramic 15",
+    type: "solar control",
+    priceRange: "$2,520 – $4,320",
+    logoUrl: "/film-logos/huper-optik-logo.jpg",
+  },
+  {
+    brand: "Llumar",
+    productName: "DL 05G SR CDF - Deluxe",
+    type: "solar control",
+    priceRange: "$2,520 – $4,320",
+    logoUrl: "/film-logos/llumar-logo.jpg",
+  },
+  {
+    brand: "Madico",
+    productName: "Amber 81",
+    type: "solar control",
+    priceRange: "$2,520 – $4,320",
+    logoUrl: "/film-logos/madico-logo.jpg",
+  },
+  {
+    brand: "Madico",
+    productName: "UV Gard",
+    type: "solar control",
+    priceRange: "$2,520 – $4,320",
+    logoUrl: "/film-logos/madico-logo.jpg",
+  },
+  {
+    brand: "Solar Gard",
+    productName: "Quantum Silver Quantum 10",
+    type: "solar control",
+    priceRange: "$2,520 – $4,320",
+    logoUrl: "/film-logos/solar-gard-logo.jpg",
+  },
+];
 
-  // Read the body as text first; it may be pure JSON or an SSE stream.
-  const raw = await res.text();
-
-  if (!res.ok) {
-    throw new Error(`RPC failed: ${res.status} ${res.statusText} — ${raw}`);
-  }
-
-  // Fast path: pure JSON
-  const trimmed = raw.trim();
-  if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
-    try {
-      return JSON.parse(trimmed);
-    } catch (e) {
-      // fall through to SSE parsing attempt
-    }
-  }
-
-  // SSE path: extract the last event's data payload
-  // SSE frames look like:
-  // event: message
-  // data: {"jsonrpc":"2.0","id":123,"result":{...}}
-  // 
-  // There may be multiple events; we take the last one that has a data: line.
-  const frames = raw.split("\n\n").filter(Boolean);
-  for (let i = frames.length - 1; i >= 0; i--) {
-    const frame = frames[i];
-    const dataLines = frame
-      .split("\n")
-      .filter((ln) => ln.startsWith("data:"))
-      .map((ln) => ln.slice(5).trim()); // remove 'data:' prefix
-    if (dataLines.length > 0) {
-      const jsonStr = dataLines.join("\n").trim();
-      try {
-        return JSON.parse(jsonStr);
-      } catch (e) {
-        // continue searching earlier frames
-      }
-    }
-  }
-
-  // If we got here, we couldn't parse the payload.
-  throw new Error(`Unexpected response format (not JSON/SSE-parsable). First 200 chars:\n${raw.slice(0, 200)}`);
-}
-
-async function callTool(name: string, args: Record<string, any>) {
-  const out = await rpcCall("tools/call", { name, arguments: args ?? {} });
-  // common shapes from our server
-  return (
-    out?.result ??
-    out?.content ??
-    out?.structuredContent ??
-    out
-  );
-}
-
-/* ---------- lightweight types ---------- */
-type Field =
-  | { id: string; kind: "radio" | "select"; label: string; required?: boolean; value?: any; options: { label: string; value: string }[] }
-  | { id: string; kind: "checkbox-group"; label: string; required?: boolean; value?: string[]; options: { label: string; value: string }[]; help?: string }
-  | { id: string; kind: "number"; label: string; min?: number; max?: number; step?: number; value?: number | null }
-  | { id: string; kind: "text"; label: string; value?: string };
-
-type Section = { kind: "group"; title?: string; fields: Field[] };
-
-type PanelSpec = {
-  kind: "panel";
-  id: string;
-  title: string;
-  description?: string;
-  sections: Section[];
-  actions?: { id: string; kind: "primary" | "secondary"; label: string }[];
+const SAMPLE_RAW = {
+  description: SAMPLE_DESCRIPTION,
+  recommendations: SAMPLE_CARDS,
 };
 
 function App() {
+  const [cards, setCards] = useState<FilmCard[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [panelTitle] = useState("Recommended Window Films");
+  const [panelDescription, setPanelDescription] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [panel, setPanel] = useState<PanelSpec | null>(null);
-  const [form, setForm] = useState<Record<string, any>>({});
-  const [submitResult, setSubmitResult] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [resultRaw, setResultRaw] = useState<any | null>(null);
+  const [showJson, setShowJson] = useState(false);
 
-  useEffect(() => { initSession().catch(() => {}); }, []);
+  const stripRef = useRef<HTMLDivElement | null>(null);
 
-  function primeFormFrom(panel: PanelSpec) {
-    const next: Record<string, any> = {};
-    for (const sec of panel.sections) {
-      for (const f of sec.fields) {
-        if ((f as any).value !== undefined && (f as any).value !== null) {
-          next[f.id] = (f as any).value;
-        } else if (f.kind === "checkbox-group") {
-          next[f.id] = [];
-        } else if (f.kind === "number") {
-          next[f.id] = undefined;
-        } else {
-          next[f.id] = "";
-        }
-      }
-    }
-    setForm(next);
-  }
+  const hasCards = cards.length > 0;
 
-  async function fetchPanel() {
+  const runSample = () => {
     setLoading(true);
     setError(null);
-    setSubmitResult(null);
-    try {
-      const result: any = await callTool("get_intake_panel", {});
-      const pRaw =
-        result?.structuredContent?.panel ??
-        result?.panel ??
-        result?.content?.panel ??
-        result;
-      const p: PanelSpec | null =
-        typeof pRaw === "string" ? JSON.parse(pRaw) : pRaw;
-      // narrow unknown payloads coming back from the server
-      function isPanelSpec(x: any): x is PanelSpec {
-        return !!x && x.kind === "panel" && typeof x.id === "string" && Array.isArray(x.sections);
-      }
 
-      // --- client-side tweaks to the panel ---
-      function massagePanel(spec: PanelSpec): PanelSpec {
-        const cloned: PanelSpec = {
-          ...spec,
-          sections: spec.sections.map((sec) => ({
-            ...sec,
-            fields: sec.fields.map((f: any) => {
-              // 1) application -> text input + new label
-              if (f.id === "application") {
-                return {
-                  id: "application_text",
-                  kind: "text",
-                  label: "Where will the window film be installed?",
-                  value: typeof f.value === "string" ? f.value : "",
-                } as Field;
-              }
-
-              // 2) orientation -> checkbox-group (multi-select)
-              if (f.id === "orientation") {
-                const options =
-                  f.options ??
-                  [
-                    { label: "North", value: "north" },
-                    { label: "East", value: "east" },
-                    { label: "South", value: "south" },
-                    { label: "West", value: "west" },
-                  ];
-
-                return {
-                  id: "orientation",
-                  kind: "checkbox-group",
-                  label: "Window orientation (select all that apply)",
-                  help: "If windows face more than one direction, choose all that apply.",
-                  options,
-                  value: Array.isArray(f.value) ? f.value : [],
-                } as Field;
-              }
-
-              return f as Field;
-            }),
-          })),
-        };
-
-        return cloned;
-      }
-
-      if (!isPanelSpec(p)) {
-        throw new Error("Invalid panel payload from server (expected { kind: 'panel', id, sections }).");
-      }
-      const tweaked = massagePanel(p);
-      setPanel(tweaked);
-      primeFormFrom(tweaked);
-    } catch (e: any) {
-      setError(e?.message ?? String(e));
-      setPanel(null);
-    } finally {
+    // For the dev preview we just load a static sample result.
+    // The actual connector uses the tools directly inside ChatGPT.
+    setTimeout(() => {
+      setCards(SAMPLE_CARDS);
+      setPanelDescription(SAMPLE_DESCRIPTION);
+      setResultRaw(SAMPLE_RAW);
+      setActiveIndex(0);
       setLoading(false);
-    }
-  }
-
-  function updateField(id: string, value: any) {
-    setForm((prev) => ({ ...prev, [id]: value }));
-  }
-
-  function renderField(f: Field) {
-    switch (f.kind) {
-      case "radio":
-        return (
-          <div key={f.id} style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 600 }}>{f.label}</div>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              {f.options.map((opt) => (
-                <label key={opt.value} style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
-                  <input
-                    type="radio"
-                    name={f.id}
-                    value={opt.value}
-                    checked={form[f.id] === opt.value}
-                    onChange={() => updateField(f.id, opt.value)}
-                  />
-                  {opt.label}
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case "select":
-        return (
-          <div key={f.id} style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 600 }}>{f.label}</div>
-            <select
-              value={form[f.id] ?? ""}
-              onChange={(e) => updateField(f.id, e.target.value || "")}
-            >
-              <option value="">{(f as any).placeholder ?? "Select…"}</option>
-              {f.options.map((opt) => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
-        );
-      case "checkbox-group":
-        return (
-          <div key={f.id} style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 600 }}>{f.label}</div>
-            {f.help && <div style={{ color: "#666", marginBottom: 6 }}>{f.help}</div>}
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              {f.options.map((opt) => {
-                const arr: string[] = form[f.id] ?? [];
-                const checked = arr.includes(opt.value);
-                return (
-                  <label key={opt.value} style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
-                    <input
-                      type="checkbox"
-                      checked={checked}
-                      onChange={(e) => {
-                        const next = new Set(arr);
-                        e.target.checked ? next.add(opt.value) : next.delete(opt.value);
-                        updateField(f.id, Array.from(next));
-                      }}
-                    />
-                    {opt.label}
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-        );
-      case "number":
-        return (
-          <div key={f.id} style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 600 }}>{f.label}</div>
-            <input
-              type="number"
-              min={f.min}
-              max={f.max}
-              step={f.step ?? 1}
-              value={form[f.id] ?? ""}
-              onChange={(e) => updateField(f.id, e.target.value === "" ? undefined : Number(e.target.value))}
-            />
-          </div>
-        );
-      case "text":
-        return (
-          <div key={f.id} style={{ marginBottom: 12 }}>
-            <div style={{ fontWeight: 600 }}>{f.label}</div>
-            <input
-              type="text"
-              value={form[f.id] ?? ""}
-              onChange={(e) => updateField(f.id, e.target.value)}
-            />
-          </div>
-        );
-      default:
-        return null;
-    }
-  }
-
-  async function handleSubmit() {
-    if (!panel) return;
-    setLoading(true);
-    setError(null);
-    setSubmitResult(null);
-    try {
-      // Build payload directly for server: free-text application and multi-orientation array
-      const payload = {
-        property_type: form["property_type"] || "residential",
-        goals: Array.isArray(form["goals"]) ? form["goals"] : [],
-        application_text: (form["application_text"] ?? "").toString().trim(),
-        vlt_preference: form["vlt_preference"] || undefined,
-        budget_level: form["budget_level"] || undefined,
-        install_location: form["install_location"] || undefined,
-        sun_exposure: form["sun_exposure"] || undefined,
-        orientation: Array.isArray(form["orientation"])
-          ? form["orientation"]
-          : (form["orientation"] ? [form["orientation"]] : []),
-        square_feet:
-          typeof form["square_feet"] === "number"
-            ? form["square_feet"]
-            : undefined,
-        city: form["city"] || undefined,
-      };
-      const result: any = await callTool("submit_intake_panel", payload);
-
-      // prefer server-provided results panel
-      const rp =
-        result?.structuredContent?.resultsPanel ??
-        result?.resultsPanel ??
-        null;
-      setSubmitResult(rp ?? result);
-    } catch (e: any) {
-      setError(e?.message ?? String(e));
-    } finally {
-      setLoading(false);
-    }
-  }
+    }, 150);
+  };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif" }}>
-      <h1>Scottish Window Tinting Advisor</h1>
+    <div
+      style={{
+        padding: "2rem",
+        fontFamily:
+          "system-ui, -apple-system, -sans-serif, Segoe UI, Roboto, sans-serif",
+        maxWidth: 960,
+        margin: "0 auto",
+      }}
+    >
+      <h1 style={{ marginBottom: 8 }}>Scottish Window Tinting — Dev Preview</h1>
+      <p style={{ color: "#666", marginBottom: 16 }}>
+        Old form-based intake panel UI is disabled. This page is just a local
+        preview of the results carousel UI.
+      </p>
 
-      {!panel ? (
-        <button onClick={fetchPanel} disabled={loading}>
-          {loading ? "Loading..." : "Load Intake Panel"}
-        </button>
-      ) : (
-        <>
-          <h2>{panel.title}</h2>
-          {panel.description && <p style={{ color: "#555" }}>{panel.description}</p>}
+      <button
+        onClick={runSample}
+        disabled={loading}
+        style={{
+          padding: "0.6rem 1.2rem",
+          borderRadius: 999,
+          border: "none",
+          background: "#0f766e",
+          color: "white",
+          fontWeight: 600,
+          cursor: loading ? "default" : "pointer",
+          marginBottom: 24,
+        }}
+      >
+        {loading ? "Running sample..." : "Run sample recommendation"}
+      </button>
 
-          {panel.sections.map((sec) => (
-            <fieldset key={sec.title} style={{ border: "1px solid #eee", borderRadius: 8, padding: 16, marginBottom: 16 }}>
-              {sec.title && <legend style={{ padding: "0 8px" }}>{sec.title}</legend>}
-              {sec.fields.map(renderField)}
-            </fieldset>
-          ))}
-
-          <button onClick={handleSubmit} disabled={loading}>
-            {loading ? "Submitting..." : "See Recommendations"}
-          </button>
-        </>
+      {error && (
+        <p style={{ color: "crimson", marginTop: 8 }}>Error: {error}</p>
       )}
 
-      {submitResult && (
-        <div style={{ marginTop: 24 }}>
-          <h3>{submitResult.title ?? "Results"}</h3>
-          {submitResult.description && <p style={{ color: "#555" }}>{submitResult.description}</p>}
-          <pre style={{ background: "#f6f8fa", padding: 12, borderRadius: 8, maxHeight: "55vh", overflow: "auto" }}>
-            {JSON.stringify(submitResult, null, 2)}
-          </pre>
+      {/* Carousel-style results */}
+      {hasCards && (
+        <div
+          style={{
+            borderRadius: 16,
+            border: "1px solid #e5e7eb",
+            padding: 20,
+            boxShadow: "0 10px 30px rgba(15,23,42,0.08)",
+            marginBottom: 24,
+            background: "white",
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              marginBottom: 12,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+              gap: 8,
+            }}
+          >
+            <div>
+              <h2 style={{ margin: 0, fontSize: "1.25rem" }}>{panelTitle}</h2>
+              {panelDescription && (
+                <p
+                  style={{
+                    color: "#6b7280",
+                    marginTop: 4,
+                    marginBottom: 0,
+                    fontSize: 14,
+                  }}
+                >
+                  {panelDescription}
+                </p>
+              )}
+            </div>
+            {cards.length > 1 && (
+              <span style={{ color: "#6b7280", fontSize: 13 }}>
+                {activeIndex + 1} / {cards.length}
+              </span>
+            )}
+          </div>
+
+          {/* Card strip, similar to the Pizzaz carousel */}
+          <div
+            style={{
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+            ref={stripRef}
+            style={{
+              display: "flex",
+              gap: 16,
+              overflowX: "auto",
+              paddingBottom: 12,
+              paddingTop: 12,
+              scrollSnapType: "x mandatory",
+            }}
+          >
+              {cards.map((card, i) => (
+                <div
+                  key={`${card.brand}-${card.productName}-${i}`}
+                  style={{
+                    minWidth: 260,
+                    maxWidth: 260,
+                    flex: "0 0 auto",
+                    borderRadius: 16,
+                    border: "1px solid #e5e7eb",
+                    padding: 10,
+                    background: "#f9fafb",
+                    boxShadow:
+                      i === activeIndex
+                        ? "0 10px 25px rgba(15,23,42,0.12)"
+                        : "0 4px 12px rgba(15,23,42,0.04)",
+                    transform:
+                      i === activeIndex ? "translateY(-2px)" : "translateY(0)",
+                    transition:
+                      "box-shadow 120ms ease, transform 120ms ease, border-color 120ms ease",
+                    borderColor:
+                      i === activeIndex ? "#0f766e" : "rgba(229,231,235,1)",
+                    scrollSnapAlign: "start",
+                  }}
+                  onMouseEnter={() => setActiveIndex(i)}
+                >
+                  {/* Logo (fills top), then brand name */}
+                  <div
+                    style={{
+                      marginBottom: 10,
+                    }}
+                  >
+                    {card.logoUrl ? (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: 110,
+                          borderRadius: 12,
+                          border: "1px solid #e5e7eb",
+                          background: "white",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: 8,
+                          boxSizing: "border-box",
+                        }}
+                      >
+                        <img
+                          src={card.logoUrl}
+                          alt={card.brand}
+                          style={{
+                            maxWidth: "100%",
+                            maxHeight: "100%",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: 110,
+                          borderRadius: 12,
+                          border: "1px dashed #d1d5db",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#9ca3af",
+                          fontSize: 10,
+                        }}
+                      >
+                        No logo
+                      </div>
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 12,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      color: "#6b7280",
+                      marginBottom: 4,
+                    }}
+                  >
+                    {card.brand}
+                  </div>
+
+                  {/* Product name */}
+                  <div
+                    style={{
+                      fontSize: 15,
+                      fontWeight: 600,
+                      marginBottom: 6,
+                      color: "#111827",
+                    }}
+                  >
+                    {card.productName}
+                  </div>
+
+                  {/* Type */}
+                  <div
+                    style={{
+                      fontSize: 13,
+                      color: "#6b7280",
+                      marginBottom: 10,
+                    }}
+                  >
+                    {card.type}
+                  </div>
+
+                  {/* Price pill */}
+                  {card.priceRange && (
+                    <div
+                      style={{
+                        marginTop: 4,
+                        padding: "6px 10px",
+                        borderRadius: 999,
+                        background: "#81AB4C3D",
+                        color: "#166534",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        fontSize: 13,
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-block",
+                          width: 8,
+                          height: 8,
+                          borderRadius: "999px",
+                          background: "#22c55e",
+                        }}
+                      />
+                      <span>Est. installed: </span>
+                      <strong>{card.priceRange}</strong>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel controls + dots */}
+          {cards.length > 1 && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: 16,
+                alignItems: "center",
+              }}
+            >
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={() =>
+                    setActiveIndex((idx) => {
+                      const next = (idx - 1 + cards.length) % cards.length;
+                      if (stripRef.current?.children[next]) {
+                        (stripRef.current.children[next] as HTMLElement).scrollIntoView({
+                          behavior: "smooth",
+                          block: "nearest",
+                          inline: "start",
+                        });
+                      }
+                      return next;
+                    })
+                  }
+                  style={{
+                    padding: "6px 12px",
+                    borderRadius: 999,
+                    border: "1px solid #d1d5db",
+                    background: "white",
+                    cursor: "pointer",
+                    fontSize: 13,
+                  }}
+                >
+                  ◀ Previous
+                </button>
+                <button
+                  onClick={() =>
+                    setActiveIndex((idx) => {
+                      const next = (idx + 1) % cards.length;
+                      if (stripRef.current?.children[next]) {
+                        (stripRef.current.children[next] as HTMLElement).scrollIntoView({
+                          behavior: "smooth",
+                          block: "nearest",
+                          inline: "start",
+                        });
+                      }
+                      return next;
+                    })
+                  }
+                  style={{
+                    padding: "6px 12px",
+                    borderRadius: 999,
+                    border: "1px solid #d1d5db",
+                    background: "white",
+                    cursor: "pointer",
+                    fontSize: 13,
+                  }}
+                >
+                  Next ▶
+                </button>
+              </div>
+
+              <div style={{ display: "flex", gap: 4 }}>
+                {cards.map((_, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "999px",
+                      background: i === activeIndex ? "#0f766e" : "#d1d5db",
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
-      {error && <p style={{ color: "crimson", marginTop: 12 }}>Error: {error}</p>}
+      {/* Raw JSON toggle for debugging */}
+      {resultRaw && (
+        <div style={{ marginTop: 16 }}>
+          <button
+            onClick={() => setShowJson((v) => !v)}
+            style={{
+              padding: "4px 10px",
+              borderRadius: 999,
+              border: "1px solid #e5e7eb",
+              background: "white",
+              fontSize: 12,
+              cursor: "pointer",
+              marginBottom: 8,
+            }}
+          >
+            {showJson ? "Hide raw JSON" : "Show raw JSON"}
+          </button>
+
+          {showJson && (
+            <pre
+              style={{
+                background: "#f6f8fa",
+                padding: 12,
+                borderRadius: 8,
+                maxHeight: "55vh",
+                overflow: "auto",
+                fontSize: 12,
+              }}
+            >
+              {JSON.stringify(resultRaw, null, 2)}
+            </pre>
+          )}
+        </div>
+      )}
 
       {/* HMR noise suppressor */}
-      <script suppressHydrationWarning />
+      {/* eslint-disable-next-line jsx-a11y/aria-role */}
+      <div role="presentation" />
     </div>
   );
 }
 
-const el = document.getElementById("root");
-if (el) {
-  ReactDOM.createRoot(el).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-}
-
 export default App;
+
+import ReactDOM from "react-dom/client";
+
+const rootEl = document.getElementById("root");
+if (rootEl) {
+  const root = ReactDOM.createRoot(rootEl);
+  root.render(<App />);
+}
