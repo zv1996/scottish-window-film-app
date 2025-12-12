@@ -64,7 +64,7 @@ function unwrapEstimate(r: any) {
   const sc = r?.structuredContent ?? {};
   return {
     quotes: Array.isArray(sc.quotes) ? sc.quotes : [],
-    range_text: typeof sc.range_text === "string" ? sc.range_text : undefined,
+    range_text: typeof sc.price_range === "string" ? sc.price_range : undefined,
   };
 }
 
@@ -288,10 +288,16 @@ export function registerSubmitIntake(server: McpServer) {
 
     return {
       content: [{ type: "text", text: `Film picks for ${recArgs.property_type}` }],
+      // Expose the panel at the top level so the widget can read window.openai.toolOutput.resultsPanel
+      resultsPanel,
       structuredContent: {
         resultsPanel,
         summary: items.length
-          ? `Film picks for ${recArgs.property_type}${typeof estArgs.square_feet === "number" ? `\n${estArgs.square_feet} sq ft` : ""}\n${items.map((i: any) => `• ${i.title}`).join("\n")}${priceRange && priceRange !== "—" ? `\nEstimated installed cost: ${priceRange}` : ""}`
+          ? `Film picks for ${recArgs.property_type}${
+              typeof estArgs.square_feet === "number" ? `\n${estArgs.square_feet} sq ft` : ""
+            }\n${items.map((i: any) => `• ${i.title}`).join("\n")}${
+              priceRange && priceRange !== "—" ? `\nEstimated installed cost: ${priceRange}` : ""
+            }`
           : `No matches yet`,
         recArgs,
         estArgs,
@@ -299,6 +305,19 @@ export function registerSubmitIntake(server: McpServer) {
         recommendations: getRecs(rec),
         quotes,
         filmCards,
+      },
+      _meta: {
+        openai: {
+          outputTemplate: {
+            resource: {
+              type: "url",
+              url: "https://scottishwindowtinting.com/ui/results-carousel.html",
+            },
+            data: {
+              resultsPanel,
+            },
+          },
+        },
       },
     };
   };

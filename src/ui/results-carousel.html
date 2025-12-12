@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scottish Window Film – Recommendations</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: transparent;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.08);
+        --text-main: #111827;
+        --text-subtle: #6b7280;
+        --accent: #2563eb;
+        --accent-soft: rgba(37, 99, 235, 0.08);
+        --shadow-soft: 0 8px 18px rgba(15, 23, 42, 0.12);
+        --radius-lg: 16px;
+        --radius-md: 12px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --card-bg: rgba(15, 23, 42, 0.95);
+          --card-border: rgba(148, 163, 184, 0.32);
+          --text-main: #e5e7eb;
+          --text-subtle: #9ca3af;
+          --accent-soft: rgba(37, 99, 235, 0.18);
+          --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.6);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 12px 0 8px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text-main);
+      }
+
+      .swt-widget {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 100%;
+      }
+
+      .swt-header {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0 16px;
+      }
+
+      .swt-header-title {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+      }
+
+      .swt-header-subtitle {
+        font-size: 13px;
+        color: var(--text-subtle);
+      }
+
+      .swt-carousel-shell {
+        display: flex;
+        align-items: stretch;
+        gap: 6px;
+        padding: 4px 8px 8px;
+      }
+
+      .swt-nav-btn {
+        border: none;
+        background: var(--accent-soft);
+        color: var(--accent);
+        width: 28px;
+        flex: 0 0 28px;
+        border-radius: 999px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        padding: 0;
+        transition: background 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+      }
+
+      .swt-nav-btn[disabled] {
+        opacity: 0.35;
+        cursor: default;
+        box-shadow: none;
+      }
+
+      .swt-nav-btn:not([disabled]):hover {
+        background: rgba(37, 99, 235, 0.16);
+        transform: translateY(-1px);
+      }
+
+      .swt-nav-btn:not([disabled]):active {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+      }
+
+      .swt-carousel-viewport {
+        position: relative;
+        overflow: hidden;
+        flex: 1 1 auto;
+      }
+
+      .swt-carousel-track {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 2px 4px 10px;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.8) transparent;
+      }
+
+      .swt-carousel-track::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      .swt-carousel-track::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .swt-carousel-track::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.8);
+        border-radius: 999px;
+      }
+
+      .swt-card {
+        min-width: 220px;
+        max-width: 240px;
+        flex: 0 0 auto;
+        border-radius: var(--radius-lg);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      @media (min-width: 720px) {
+        .swt-card {
+          min-width: 240px;
+          max-width: 260px;
+        }
+      }
+
+      .swt-card-logo {
+        width: 100%;
+        height: 88px;
+        background: radial-gradient(circle at 0 0, var(--accent-soft), transparent 55%),
+          radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.08), transparent 55%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px;
+      }
+
+      .swt-card-logo img {
+        max-width: 100%;
+        max-height: 72px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.3));
+      }
+
+      .swt-card-logo-fallback {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-subtle);
+      }
+
+      .swt-card-body {
+        padding: 10px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .swt-card-brand {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--text-subtle);
+      }
+
+      .swt-card-product {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .swt-card-type {
+        font-size: 13px;
+        color: var(--text-subtle);
+      }
+
+      .swt-card-price-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-top: 6px;
+        color: var(--text-subtle);
+      }
+
+      .swt-card-price-value {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .swt-footer {
+        padding: 0 16px 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--text-subtle);
+      }
+
+      .swt-footer-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 10px;
+        align-items: center;
+      }
+
+      .swt-chip {
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .swt-footer-hint {
+        font-size: 11px;
+      }
+
+      .swt-empty {
+        padding: 10px 16px 8px;
+        font-size: 13px;
+        color: var(--text-subtle);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swt-widget" id="swt-root">
+      <div class="swt-header">
+        <div class="swt-header-title">Recommended films</div>
+        <div class="swt-header-subtitle" id="swt-subtitle">
+          Tailored picks based on your answers.
+        </div>
+      </div>
+
+      <div class="swt-carousel-shell" id="swt-shell" style="display:none;">
+        <button class="swt-nav-btn" id="swt-prev" aria-label="Previous" disabled>
+          ‹
+        </button>
+
+        <div class="swt-carousel-viewport">
+          <div class="swt-carousel-track" id="swt-track"></div>
+        </div>
+
+        <button class="swt-nav-btn" id="swt-next" aria-label="Next">
+          ›
+        </button>
+      </div>
+
+      <div class="swt-empty" id="swt-empty" style="display:none;">
+        No film recommendations were found for this scenario. Try adjusting goals,
+        budget, or install location and run the tool again.
+      </div>
+
+      <div class="swt-footer" id="swt-footer" style="display:none;">
+        <div class="swt-footer-main">
+          <span class="swt-chip" id="swt-price-chip"></span>
+          <span class="swt-footer-hint"
+            >Ballpark only — your actual quote may vary with access and
+            complexity.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      const openai = window.openai || {};
+
+      function normalizePanel() {
+        const toolOutput = openai.toolOutput || {};
+        const panel =
+          toolOutput.resultsPanel ||
+          toolOutput.panel ||
+          null;
+
+        if (!panel || !panel.sections) {
+          return {
+            description: "",
+            cards: [],
+            priceRange: null,
+          };
+        }
+
+        const description = panel.description || "";
+
+        const topMatchesGroup =
+          panel.sections.find(
+            (s) =>
+              s.title === "Top Matches" ||
+              (s.fields || []).some((f) => f.id === "recommendations_list")
+          ) || null;
+
+        const listField =
+          topMatchesGroup &&
+          (topMatchesGroup.fields || []).find(
+            (f) =>
+              f.kind === "list" &&
+              (f.id === "recommendations_list" || (f.items || []).length)
+          );
+
+        const items = (listField && listField.items) || [];
+
+        const estGroup =
+          panel.sections.find((s) => s.title === "Estimated Installed Cost") ||
+          null;
+
+        const priceField =
+          estGroup &&
+          (estGroup.fields || []).find((f) => f.id === "price_range");
+
+        const priceRange = priceField && priceField.value
+          ? String(priceField.value)
+          : null;
+
+        const cards = items.map((item) => {
+          const rawTitle = item.title || "Window film";
+          const subtitle = item.subtitle || "";
+
+          const parts = rawTitle.split("•").map((p) => p.trim()).filter(Boolean);
+          const brandName = parts[0] || "Window film";
+          const productName =
+            parts.length > 1 ? parts.slice(1).join(" • ") : rawTitle;
+
+          const typePart = subtitle.split("•")[0]?.trim();
+          const typeLabel =
+            typePart && typePart.length > 0
+              ? typePart.charAt(0).toUpperCase() + typePart.slice(1)
+              : "Window film";
+
+          // Basic brand slug for future logo mapping (if you host logos somewhere public)
+          const brandSlug = brandName
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+
+          return {
+            brandName,
+            productName,
+            typeLabel,
+            brandSlug,
+          };
+        });
+
+        return {
+          description,
+          cards,
+          priceRange,
+        };
+      }
+
+      function render() {
+        const root = document.getElementById("swt-root");
+        const subtitleEl = document.getElementById("swt-subtitle");
+        const shellEl = document.getElementById("swt-shell");
+        const emptyEl = document.getElementById("swt-empty");
+        const trackEl = document.getElementById("swt-track");
+        const footerEl = document.getElementById("swt-footer");
+        const priceChipEl = document.getElementById("swt-price-chip");
+        const prevBtn = document.getElementById("swt-prev");
+        const nextBtn = document.getElementById("swt-next");
+
+        if (!root || !trackEl) return;
+
+        const { description, cards, priceRange } = normalizePanel();
+
+        if (description && subtitleEl) {
+          subtitleEl.textContent = description;
+        }
+
+        trackEl.innerHTML = "";
+
+        if (!cards.length) {
+          shellEl.style.display = "none";
+          emptyEl.style.display = "block";
+          footerEl.style.display = "none";
+          notifyHeight();
+          return;
+        }
+
+        shellEl.style.display = "flex";
+        emptyEl.style.display = "none";
+
+        cards.forEach((card) => {
+          const cardEl = document.createElement("div");
+          cardEl.className = "swt-card";
+
+          const logoEl = document.createElement("div");
+          logoEl.className = "swt-card-logo";
+
+          const img = document.createElement("img");
+          img.src = `film-logos/${card.brandSlug}-logo.jpg`;
+          img.alt = `${card.brandName} logo`;
+
+          img.onerror = () => {
+            logoEl.innerHTML = "";
+            const fallback = document.createElement("div");
+            fallback.className = "swt-card-logo-fallback";
+            fallback.textContent = card.brandName;
+            logoEl.appendChild(fallback);
+          };
+
+          logoEl.appendChild(img);
+
+          const bodyEl = document.createElement("div");
+          bodyEl.className = "swt-card-body";
+
+          const brandEl = document.createElement("div");
+          brandEl.className = "swt-card-brand";
+          brandEl.textContent = card.brandName;
+
+          const productEl = document.createElement("div");
+          productEl.className = "swt-card-product";
+          productEl.textContent = card.productName;
+
+          const typeEl = document.createElement("div");
+          typeEl.className = "swt-card-type";
+          typeEl.textContent = card.typeLabel;
+
+          const priceLabelEl = document.createElement("div");
+          priceLabelEl.className = "swt-card-price-label";
+          priceLabelEl.textContent = "Estimate";
+
+          const priceValueEl = document.createElement("div");
+          priceValueEl.className = "swt-card-price-value";
+          priceValueEl.textContent =
+            priceRange || "Available after a detailed quote";
+
+          bodyEl.appendChild(brandEl);
+          bodyEl.appendChild(productEl);
+          bodyEl.appendChild(typeEl);
+          bodyEl.appendChild(priceLabelEl);
+          bodyEl.appendChild(priceValueEl);
+
+          cardEl.appendChild(logoEl);
+          cardEl.appendChild(bodyEl);
+
+          trackEl.appendChild(cardEl);
+        });
+
+        // Footer / price chip
+        if (priceRange && priceChipEl) {
+          priceChipEl.textContent = priceRange;
+          footerEl.style.display = "flex";
+        } else {
+          footerEl.style.display = "none";
+        }
+
+        // Carousel controls: scroll by ~1.5 cards at a time
+        const cardEls = Array.from(trackEl.querySelectorAll(".swt-card"));
+        const cardWidth =
+          (cardEls[0] && cardEls[0].getBoundingClientRect().width) || 240;
+        const step = cardWidth * 1.6;
+
+        function updateNavState() {
+          const maxScroll =
+            trackEl.scrollWidth - trackEl.clientWidth - 4 /* buffer */;
+          const atStart = trackEl.scrollLeft <= 2;
+          const atEnd = trackEl.scrollLeft >= maxScroll;
+
+          prevBtn.disabled = atStart;
+          nextBtn.disabled = atEnd;
+        }
+
+        prevBtn.onclick = () => {
+          trackEl.scrollBy({ left: -step, behavior: "smooth" });
+          setTimeout(updateNavState, 250);
+        };
+
+        nextBtn.onclick = () => {
+          trackEl.scrollBy({ left: step, behavior: "smooth" });
+          setTimeout(updateNavState, 250);
+        };
+
+        trackEl.addEventListener("scroll", () => {
+          updateNavState();
+        });
+
+        updateNavState();
+        notifyHeight();
+      }
+
+      function notifyHeight() {
+        if (typeof openai.notifyIntrinsicHeight === "function") {
+          const root = document.getElementById("swt-root");
+          if (!root) return;
+          // Give layout a tick to settle first
+          requestAnimationFrame(() => {
+            openai.notifyIntrinsicHeight();
+          });
+        }
+      }
+
+      // Initial render
+      render();
+    </script>
+  </body>
+</html>

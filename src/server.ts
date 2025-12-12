@@ -1,3 +1,4 @@
+import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -22,6 +23,7 @@ process.on("unhandledRejection", (reason) => {
 });
 
 const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" });
+
 
 // relax types for now
 server.registerTool("recommend_films", recommendFilms.descriptor as any, recommendFilms.handler as any);
@@ -60,6 +62,9 @@ if (MODE === "http" || MODE === "http1") {
   const PATH = process.env.MCP_PATH || "/mcp";
 
   const app = express();
+  // Serve design-component UI resources (for ChatGPT App SDK)
+  const uiDir = path.join(process.cwd(), "results-ui");
+  app.use("/ui", express.static(uiDir));
   app.use(express.json({ limit: "4mb" }));
 
 // Log incoming requests so we can see what the connector does
