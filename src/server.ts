@@ -1,4 +1,5 @@
 import path from "node:path";
+import { readFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -23,6 +24,31 @@ process.on("unhandledRejection", (reason) => {
 });
 
 const server = new McpServer({ name: "scottish-window-film", version: "1.0.0" });
+
+const swtResultsCarouselHtml = readFileSync(
+  path.join(process.cwd(), "src", "ui", "results-carousel.html"),
+  "utf8"
+);
+
+server.registerResource(
+  "swt-results-carousel",
+  "ui://widget/swt-results-carousel.html",
+  {},
+  async () => ({
+    contents: [
+      {
+        uri: "ui://widget/swt-results-carousel.html",
+        mimeType: "text/html+skybridge",
+        text: swtResultsCarouselHtml,
+        _meta: {
+          "openai/widgetDescription":
+            "Scottish Window Tinting results carousel showing recommended films and price ranges.",
+          "openai/widgetPrefersBorder": true,
+        },
+      },
+    ],
+  })
+);
 
 
 // relax types for now

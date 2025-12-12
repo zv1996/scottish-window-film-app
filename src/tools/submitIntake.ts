@@ -118,6 +118,11 @@ export function registerSubmitIntake(server: McpServer) {
     description:
       "Takes intake answers and returns a results panel with film recommendations and an installed price range.",
     inputSchema,
+    _meta: {
+      "openai/outputTemplate": "ui://widget/swt-results-carousel.html",
+      "openai/toolInvocation/invoking": "Preparing Scottish Window Tinting recommendations…",
+      "openai/toolInvocation/invoked": "Film recommendations ready.",
+    },
   };
 
   const handler = async (args: any) => {
@@ -305,19 +310,6 @@ export function registerSubmitIntake(server: McpServer) {
         recommendations: getRecs(rec),
         quotes,
         filmCards,
-      },
-      _meta: {
-        openai: {
-          outputTemplate: {
-            resource: {
-              type: "url",
-              url: "https://scottishwindowtinting.com/ui/results-carousel.html",
-            },
-            data: {
-              resultsPanel,
-            },
-          },
-        },
       },
     };
   };
